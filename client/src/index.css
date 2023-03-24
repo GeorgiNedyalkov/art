@@ -27,6 +27,10 @@ a:hover {
     color: grey;
 }
 
+h3 {
+    margin-bottom: 50px;
+}
+
 .App {
     margin: 0 auto;
     max-width: 1080px;
