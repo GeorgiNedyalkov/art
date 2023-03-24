@@ -1,10 +1,17 @@
-import Art from "./components/Art/Art";
+import Home from "./components/Home/Home";
+import CreateArt from "./components/CreateArt/CreateArt";
+import Header from "./components/Header/Header";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <h1>Art Hub</h1>
-      <Art />
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/create-art" element={<CreateArt />} />
+      </Routes>
     </div>
   );
 }
