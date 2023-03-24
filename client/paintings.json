@@ -75,5 +75,27 @@
         "method": "Oil on canvas",
         "size": "100.4 cm x 72.4 cm (39.5 in x 28.5 in)",
         "description": "This painting by Pablo Picasso is in the public domain in the United States because it was first published before 1923: Maurice Raynal, Picasso, 2., verm. Aufl. Aus dem französischen Manuskript übers. von Ludwig Gorm. Published 1921 by Delphin-Verlag in München. Written in German. This work is reproduced in section Gemälde, page 46."
+    },
+    {
+        "id": 8,
+        "name": "Le Rêve",
+        "artist": "Pablo Picasso",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9d/Le-reve-1932.jpg",
+        "year": "1932",
+        "movement": "Cubism",
+        "method": "Oil on canvas",
+        "size": "130 cm x 97 cm (51 in x 38 in)",
+        "description": "Le Rêve (English: The Dream) is a 1932 oil on canvas painting (130 × 97 cm) by Pablo Picasso, then 50 years old, portraying his 22-year-old mistress Marie-Thérèse Walter. It is said to have been painted in one afternoon, on 24 January 1932. It belongs to Picasso's period of distorted depictions, with its oversimplified outlines and contrasted colors resembling early cubism. The erotic content of the painting has been noted repeatedly, with critics pointing out that Picasso painted an erect penis, presumably symbolizing his own, in the upturned face of his model.[1] On 26 March 2013, the painting was sold in a private sale for $155 million, making it one of the most expensive paintings ever sold."
+    },
+    {
+        "id": 9,
+        "name": "De Nachtwacht - The Night Watch",
+        "artist": "Rembrandt van Rijin",
+        "imageUrl": "https://www.artnews.com/wp-content/uploads/2021/02/SK-C-5.jpg",
+        "year": "1642",
+        "movement": "Baroque painting, Dutch Golden Age painting",
+        "method": "Oil on canvas",
+        "size": "363 cm × 437 cm (142.9 in × 172.0 in)",
+        "description": "Militia Company of District II under the Command of Captain Frans Banninck Cocq,[1] also known as The Shooting Company of Frans Banning Cocq and Willem van Ruytenburch, but commonly referred to as The Night Watch (Dutch: De Nachtwacht), is a 1642 painting by Rembrandt van Rijn. It is in the collection of the Amsterdam Museum but is prominently displayed in the Rijksmuseum as the best-known painting in its collection. The Night Watch is one of the most famous Dutch Golden Age paintings. The painting is famous for three things: its colossal size (363 by 437 centimetres (12 by 14+1⁄2 feet)), the dramatic use of light and shadow (tenebrism) and the perception of motion in what would have traditionally been a static military group portrait. The painting was completed in 1642, at the peak of the Dutch Golden Age. It depicts the eponymous company moving out, led by Captain Frans Banninck Cocq (dressed in black, with a red sash) and his lieutenant, Willem van Ruytenburch (dressed in yellow, with a white sash). With effective use of sunlight and shade, Rembrandt leads the eye to the three most important characters among the crowd: the two men in the centre (from whom the painting gets its original title), and the woman in the centre-left background carrying a chicken. Behind them, the company's colours are carried by the ensign, Jan Visscher Cornelissen. The figures are almost life-size. Rembrandt has displayed the traditional emblem of the arquebusiers in a natural way, with the woman in the background carrying the main symbols. She is a kind of mascot herself; the claws of a dead chicken on her belt represent the clauweniers (arquebusiers), the pistol behind the chicken represents clover and she is holding the militia's goblet. The man in front of her is wearing a helmet with an oak leaf, a traditional motif of the arquebusiers. The dead chicken is also meant to represent a defeated adversary. The colour yellow is often associated with victory."
     }
 ]

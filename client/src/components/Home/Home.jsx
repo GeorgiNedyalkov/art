@@ -1,4 +1,4 @@
-import Art from "../Art/Art";
+import Paintings from "../Paintings/Piantings";
 import "./Home.css";
 
 const Home = ({ paintings }) => {
@@ -17,15 +17,7 @@ const Home = ({ paintings }) => {
       <h3>Here are some the most notable paintings in our life time</h3>
 
       <div>
-        <ul className="paintings">
-          {paintings.map((p) => {
-            return (
-              <li key={p.id}>
-                <Art {...p} />
-              </li>
-            );
-          })}
-        </ul>
+        <Paintings paintings={paintings} />
       </div>
     </>
   );

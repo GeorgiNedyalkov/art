@@ -5,6 +5,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Catalogue from "./components/Catalogue/Catalogue";
 
 const baseUrl = "http://localhost:3030/jsonwebstore";
 
@@ -23,6 +24,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home paintings={paintings} />} />
+        <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
         <Route path="/create-art" element={<CreateArt />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
