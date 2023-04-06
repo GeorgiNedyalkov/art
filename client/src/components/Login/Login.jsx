@@ -18,29 +18,31 @@ const Login = () => {
   };
   return (
     <section>
-      <h2>Register</h2>
+      <h2>Login</h2>
       <form action="post" onSubmit={onLoginSubmit}>
         <div>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username"></label>
           <input
             value={values.username}
             onChange={onLoginChange}
             type="text"
             name="username"
             id="username"
+            placeholder="Username"
           />
         </div>
         <div>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password"></label>
           <input
             value={values.password}
             onChange={onLoginChange}
             type="password"
             name="password"
             id="password"
+            placeholder="Password"
           />
         </div>
-        <input type="submit" value="Login" />
+        <input className="button" type="submit" value="Login" />
       </form>
     </section>
   );

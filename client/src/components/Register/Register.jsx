@@ -1,25 +1,37 @@
+import "./Register.css";
+
 const Register = () => {
   return (
-    <div>
-      <h2 className="page-title">Register</h2>
+    <div className="register">
+      <h2>Register</h2>
       <form action="post">
         <div>
           <label htmlFor="name"></label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" placeholder="Name" />
         </div>
         <div>
           <label htmlFor="username"></label>
-          <input type="text" name="username" id="username" />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+          />
         </div>
         <div>
           <label htmlFor="email"></label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" placeholder="Email" />
         </div>
         <div>
           <label htmlFor="password"></label>
-          <input type="password" name="passowrd" id="passowrd" />
+          <input
+            type="password"
+            name="password"
+            id="passowrd"
+            placeholder="Password"
+          />
         </div>
-        <input type="submit" value="Register" />
+        <input className="button" type="submit" value="Register" />
       </form>
     </div>
   );
