@@ -3,7 +3,7 @@ import "./Art.css";
 const Art = ({ name, year, imageUrl, method, size, description, artist }) => {
   return (
     <article className="art">
-      <h2 className="art-name">{name}</h2>
+      <h2 className="art-name">{name.slice(0, 35)}</h2>
       <p className="art-year">{year}</p>
       <div className="art-img-wrapper">
         <img className="art-img" src={imageUrl} alt={`${name} by ${artist}`} />
