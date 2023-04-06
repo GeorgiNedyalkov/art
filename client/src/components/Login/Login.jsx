@@ -13,9 +13,8 @@ const Login = () => {
 
   const onLoginSubmit = (e) => {
     e.preventDefault();
-
-    console.log(values);
   };
+
   return (
     <section>
       <h2>Login</h2>
