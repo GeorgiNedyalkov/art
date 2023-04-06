@@ -9,3 +9,8 @@
 .art-description {
     width: 100%;
 }
+
+.art-medium,
+.art-size {
+    text-align: center;
+}

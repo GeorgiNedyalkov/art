@@ -1,5 +1,15 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-img-container {
+    height: 700px;
+}
+
 .hero-img {
-    width: 100%;
+    height: 100%;
 }
 
 .paintings {
@@ -8,3 +18,4 @@
     justify-content: center;
     gap: 50px;
 }
+
