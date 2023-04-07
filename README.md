@@ -47,4 +47,8 @@ Additional Requirements:
 - Connect to an external API like Google maps, AccuWeather.
 - Deploy application to cloud (Heroku, Firebase).
 
-## TODO: Art Details Page
+## Art Details Page
+
+## Bugs:
+
+- navigation to art details page from catalog or home page does not work.

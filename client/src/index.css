@@ -15,6 +15,9 @@
 
     /* red */
     --red-400: #c04343; 
+
+    /* blue */
+    --blue-400: #4364c0; 
 }
 
 *,
@@ -47,8 +50,9 @@ p {
 }
 
 h2 {
-    text-align: center;
     margin: 20px 0px;
+    text-align: center;
+    color: var(--gray-900);
 }
 
 h3 {
@@ -61,6 +65,7 @@ h3 {
 }
 
 .button {
+    margin-bottom: 20px;
     padding: 10px;
     width: 100%;
     border: none;
@@ -88,9 +93,12 @@ input, textarea {
     font-family: inherit;
 }
 
+/* Buttons */
+
 .btn {
-    width: 100px;
+    margin-bottom: 20px;
     padding: 5px;
+    width: 100px;
     border: none;
     font-weight: 700;
     text-transform: uppercase;
@@ -99,10 +107,14 @@ input, textarea {
     cursor: pointer;
 }
 
+.btn:hover {
+    opacity: 80%;
+}
+
 .delete {
     background-color: var(--red-400);
 }
 
-.btn:hover {
-    opacity: 80%;
+.edit {
+    background-color: var(--blue-400);
 }

@@ -9,6 +9,7 @@ import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
 import { getAll, create } from "./services/artService";
+import ArtDetails from "./components/ArtDetails/ArtDetails";
 
 function App() {
   const [paintings, setPaintings] = useState([]);
@@ -39,6 +40,7 @@ function App() {
           element={<CreateArt onCreateArt={onCreateArt} />}
         />
         <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
+        <Route path="/catalog/:artId" element={<ArtDetails />} />
       </Routes>
     </div>
   );

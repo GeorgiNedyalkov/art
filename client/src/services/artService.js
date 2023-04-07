@@ -7,6 +7,13 @@ export const getAll = async () => {
   return data;
 };
 
+export const getOne = async (artId) => {
+  const response = await fetch(`${baseUrl}/${artId}`);
+  const data = await response.json();
+
+  return data;
+};
+
 export const create = async (artData) => {
   const response = await fetch(baseUrl, {
     method: "POST",

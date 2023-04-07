@@ -1,0 +1,13 @@
+.art-details-title, .art-details-year {
+    text-align: center;
+}
+
+
+.art-details {
+    display: flex;    
+    justify-content: space-between;
+}
+
+.art-details-description {
+    min-width: 200px;
+}

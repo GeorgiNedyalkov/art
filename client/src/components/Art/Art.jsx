@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 import { deleteArt } from "../../services/artService";
+
 import "./Art.css";
 
 const Art = ({
@@ -18,20 +21,27 @@ const Art = ({
 
     // setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
   };
+
   return (
     <article className="art">
       <h2 className="art-name">{name.slice(0, 35)}</h2>
       <p className="art-artist">{artist}</p>
       <p className="art-year">{year}</p>
-      <div className="art-img-wrapper">
-        <img className="art-img" src={imageUrl} alt={`${name} by ${artist}`} />
-      </div>
+      <Link to={`catalog/${_id}`}>
+        <div className="art-img-wrapper">
+          <img
+            className="art-img"
+            src={imageUrl}
+            alt={`${name} by ${artist}`}
+          />
+        </div>
+      </Link>
       <p className="art-medium">{method}</p>
       <p className="art-dimensions">{size}</p>
       <p className="art-description">{description?.slice(0, 200)}</p>
-      <button onClick={() => onDeleteArt(_id)} className="btn delete">
+      {/* <button onClick={() => onDeleteArt(_id)} className="btn delete">
         delete
-      </button>
+      </button> */}
     </article>
   );
 };
