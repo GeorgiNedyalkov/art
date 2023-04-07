@@ -20,6 +20,10 @@ function App() {
     getAll().then((data) => setPaintings(data));
   }, []);
 
+  const onRegisterHandler = (values) => {
+    console.log(values);
+  };
+
   const onCreateArt = async (artData) => {
     const newArtPiece = await create(artData);
 
@@ -47,7 +51,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home paintings={paintings} />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/register"
+          element={<Register onRegisterHandler={onRegisterHandler} />}
+        />
         <Route
           path="/create-art"
           element={<CreateArt onCreateArt={onCreateArt} />}
