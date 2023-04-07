@@ -4,6 +4,7 @@ import "./CreateArt.css";
 const CreateArt = ({ onCreateArt }) => {
   const [formValues, setFormValues] = useState({
     name: "",
+    artist: "",
     imageUrl: "",
     year: "",
     method: "",
@@ -16,10 +17,6 @@ const CreateArt = ({ onCreateArt }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-
-    // TODO: add art to server
-
-    // TODO: add art to state
 
     onCreateArt(formValues);
   };
@@ -37,6 +34,17 @@ const CreateArt = ({ onCreateArt }) => {
             name="name"
             id="name"
             placeholder="Name"
+          />
+        </div>
+        <div>
+          <label htmlFor="artist"></label>
+          <input
+            value={formValues.artist}
+            onChange={onValueChange}
+            type="text"
+            name="artist"
+            id="artist"
+            placeholder="Artist"
           />
         </div>
         <div>

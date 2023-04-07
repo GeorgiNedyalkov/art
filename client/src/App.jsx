@@ -8,7 +8,7 @@ import Register from "./components/Register/Register";
 import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
-import { getAll } from "./services/artService";
+import { getAll, create } from "./services/artService";
 
 function App() {
   const [paintings, setPaintings] = useState([]);
@@ -19,6 +19,10 @@ function App() {
   }, []);
 
   const onCreateArt = async (artData) => {
+    const newArt = await create(artData);
+
+    console.log(newArt);
+
     setPaintings((state) => [artData, ...state]);
 
     navigate("/catalog");
