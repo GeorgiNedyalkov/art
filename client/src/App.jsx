@@ -5,10 +5,11 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Header from "./components/Header/Header";
 import Register from "./components/Register/Register";
+import EditArt from "./components/EditArt/EditArt";
 import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
-import { getAll, create } from "./services/artService";
+import { getAll, create, update } from "./services/artService";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
 function App() {
@@ -27,6 +28,18 @@ function App() {
     navigate("/catalog");
   };
 
+  const onEditArt = async (artId, artData) => {
+    const updatedArtPiece = await update(artId, artData);
+
+    setPaintings((state) =>
+      state.map((painting) =>
+        painting._id === artId ? updatedArtPiece : painting
+      )
+    );
+
+    navigate(`/catalog/${artId}`);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -41,6 +54,10 @@ function App() {
         />
         <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
         <Route path="/catalog/:artId" element={<ArtDetails />} />
+        <Route
+          path="/catalog/:artId/edit"
+          element={<EditArt onEditArt={onEditArt} />}
+        />
       </Routes>
     </div>
   );

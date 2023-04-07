@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import { getOne } from "../../services/artService";
 import "./ArtDetails.css";
@@ -12,17 +12,13 @@ const ArtDetails = () => {
     getOne(artId).then((data) => setArt(data));
   }, []);
 
-  const onEditClick = (e) => {
-    console.log("clicked");
-  };
-
   return (
     <section id="art-details-page">
       <h1 className="art-details-title">{art.name}</h1>
       <p className="art-details-year">{art.year}</p>
-      <button onClick={onEditClick} className="btn edit">
-        Edit
-      </button>
+      <Link to={`/catalog/${artId}/edit`}>
+        <button className="btn edit">Edit</button>
+      </Link>
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">

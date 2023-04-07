@@ -38,7 +38,7 @@ export const deleteArt = async (artId) => {
   return data;
 };
 
-export const put = async (artId, artData) => {
+export const update = async (artId, artData) => {
   const response = await fetch(`${baseUrl}/${artId}`, {
     method: "PUT",
     body: JSON.stringify(artData),
