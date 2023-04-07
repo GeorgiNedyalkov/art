@@ -46,3 +46,5 @@ Additional Requirements:
 - Use a _file storage cloud API_ like _Dropbox_ or _Google Drive_
 - Connect to an external API like Google maps, AccuWeather.
 - Deploy application to cloud (Heroku, Firebase).
+
+## TODO: Art Details Page

@@ -10,7 +10,7 @@ const Art = ({ name, year, imageUrl, method, size, description, artist }) => {
       </div>
       <p className="art-medium">{method}</p>
       <p className="art-dimensions">{size}</p>
-      <p className="art-description">{description.slice(0, 200)}</p>
+      <p className="art-description">{description?.slice(0, 200)}</p>
     </article>
   );
 };

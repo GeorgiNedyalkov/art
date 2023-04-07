@@ -1,22 +1,28 @@
-import Home from "./components/Home/Home";
-import CreateArt from "./components/CreateArt/CreateArt";
-import Header from "./components/Header/Header";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Header from "./components/Header/Header";
+import Register from "./components/Register/Register";
+import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
-const baseUrl = "http://localhost:3030/jsonwebstore";
+import { getAll } from "./services/artService";
 
 function App() {
   const [paintings, setPaintings] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("./paintings.json")
-      .then((response) => response.json())
-      .then((data) => setPaintings(data));
+    getAll().then((data) => setPaintings(data));
   }, []);
+
+  const onCreateArt = async (artData) => {
+    setPaintings((state) => [artData, ...state]);
+
+    navigate("/catalog");
+  };
 
   return (
     <div className="App">
@@ -24,10 +30,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home paintings={paintings} />} />
-        <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
-        <Route path="/create-art" element={<CreateArt />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route
+          path="/create-art"
+          element={<CreateArt onCreateArt={onCreateArt} />}
+        />
+        <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
       </Routes>
     </div>
   );

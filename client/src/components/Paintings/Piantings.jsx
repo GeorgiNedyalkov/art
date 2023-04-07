@@ -6,7 +6,7 @@ const Paintings = ({ paintings }) => {
     <ul className="paintings">
       {paintings.map((p) => {
         return (
-          <li key={p.id}>
+          <li key={p._id}>
             <Art {...p} />
           </li>
         );

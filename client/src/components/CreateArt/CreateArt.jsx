@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./CreateArt.css";
 
-const CreateArt = () => {
+const CreateArt = ({ onCreateArt }) => {
   const [formValues, setFormValues] = useState({
     name: "",
     imageUrl: "",
@@ -17,11 +17,11 @@ const CreateArt = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    console.log("submitted");
-
     // TODO: add art to server
 
     // TODO: add art to state
+
+    onCreateArt(formValues);
   };
 
   return (
