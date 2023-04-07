@@ -52,3 +52,20 @@ Additional Requirements:
 ## Bugs:
 
 - navigation to art details page from catalog or home page does not work.
+
+## TODO:
+
+- Unify all forms to use the useForm hook.
+- Fix the bug for same navigation.
+- Fix layout but in the art details page.
+
+- Add ability to register users
+- Add ability to log in
+- Add authorization
+- Add my personal art
+
+- Add comments
+- Add artists
+- Add most liked artworks
+- Add ability to like a painting
+- Add a footer
