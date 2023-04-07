@@ -37,3 +37,17 @@ export const deleteArt = async (artId) => {
 
   return data;
 };
+
+export const put = async (artId, artData) => {
+  const response = await fetch(`${baseUrl}/${artId}`, {
+    method: "PUT",
+    body: JSON.stringify(artData),
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+
+  return data;
+};

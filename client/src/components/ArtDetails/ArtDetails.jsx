@@ -20,15 +20,12 @@ const ArtDetails = () => {
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">
-          <p>
-            <h4>Artist:</h4> {art.artist}
-          </p>
-          <p>
-            <h4>Method: </h4> {art.method}
-          </p>
-          <p>
-            <h4>Movement:</h4> {art.movement}
-          </p>
+          <h4>Artist:</h4>
+          <p>{art.artist}</p>
+          <h4>Method: </h4>
+          <p>{art.method}</p>
+          <h4>Movement:</h4>
+          <p>{art.movement}</p>
         </div>
         <div>
           <h4>Description</h4>
