@@ -12,11 +12,17 @@ const ArtDetails = () => {
     getOne(artId).then((data) => setArt(data));
   }, []);
 
+  const onEditClick = (e) => {
+    console.log("clicked");
+  };
+
   return (
     <section id="art-details-page">
       <h1 className="art-details-title">{art.name}</h1>
       <p className="art-details-year">{art.year}</p>
-      <button className="btn edit">Edit</button>
+      <button onClick={onEditClick} className="btn edit">
+        Edit
+      </button>
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">
