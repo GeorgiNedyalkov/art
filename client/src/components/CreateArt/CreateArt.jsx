@@ -7,7 +7,9 @@ const CreateArt = ({ onCreateArt }) => {
     artist: "",
     imageUrl: "",
     year: "",
+    movement: "",
     method: "",
+    size: "",
     description: "",
   });
 
@@ -78,6 +80,28 @@ const CreateArt = ({ onCreateArt }) => {
             name="method"
             id="method"
             placeholder="Method"
+          />
+        </div>
+        <div>
+          <label htmlFor="movement"></label>
+          <input
+            value={formValues.movement}
+            onChange={onValueChange}
+            type="text"
+            name="movement"
+            id="movement"
+            placeholder="Movement"
+          />
+        </div>
+        <div>
+          <label htmlFor="size"></label>
+          <input
+            value={formValues.size}
+            onChange={onValueChange}
+            type="text"
+            name="size"
+            id="size"
+            placeholder="Size"
           />
         </div>
         <div>

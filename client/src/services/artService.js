@@ -20,3 +20,13 @@ export const create = async (artData) => {
 
   return data;
 };
+
+export const deleteArt = async (artId) => {
+  const response = await fetch(`${baseUrl}/${artId}`, {
+    method: "DELETE",
+  });
+
+  const data = response.json();
+
+  return data;
+};

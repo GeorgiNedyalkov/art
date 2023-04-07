@@ -19,11 +19,9 @@ function App() {
   }, []);
 
   const onCreateArt = async (artData) => {
-    const newArt = await create(artData);
+    const newArtPiece = await create(artData);
 
-    console.log(newArt);
-
-    setPaintings((state) => [artData, ...state]);
+    setPaintings((state) => [newArtPiece, ...state]);
 
     navigate("/catalog");
   };

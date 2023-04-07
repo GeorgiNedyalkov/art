@@ -12,6 +12,9 @@
     --gray-700: #404040;
     --gray-800: #262626;
     --gray-900: #171717;
+
+    /* red */
+    --red-400: #c04343; 
 }
 
 *,
@@ -83,4 +86,23 @@ input, textarea {
     width: 100%;
     outline: none;
     font-family: inherit;
+}
+
+.btn {
+    width: 100px;
+    padding: 5px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gray-100);
+    background-color: var(--gray-900);
+    cursor: pointer;
+}
+
+.delete {
+    background-color: var(--red-400);
+}
+
+.btn:hover {
+    opacity: 80%;
 }
