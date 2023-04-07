@@ -17,14 +17,23 @@ const ArtDetails = () => {
       <h1 className="art-details-title">{art.name}</h1>
       <p className="art-details-year">{art.year}</p>
       <button className="btn edit">Edit</button>
-      <img src={art.imageUrl} alt={art.name} />
+      <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">
-          <p>Artist: {art.artist}</p>
-          <p>Method: {art.method}</p>
-          <p>Movement: {art.movement}</p>
+          <p>
+            <h4>Artist:</h4> {art.artist}
+          </p>
+          <p>
+            <h4>Method: </h4> {art.method}
+          </p>
+          <p>
+            <h4>Movement:</h4> {art.movement}
+          </p>
         </div>
-        <p>{art.description}</p>
+        <div>
+          <h4>Description</h4>
+          <p>{art.description}</p>
+        </div>
       </div>
     </section>
   );

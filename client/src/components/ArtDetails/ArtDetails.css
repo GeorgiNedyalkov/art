@@ -9,5 +9,9 @@
 }
 
 .art-details-description {
-    min-width: 200px;
+    min-width: 400px;
+}
+
+.art-details-img {
+    margin-bottom: 50px;
 }

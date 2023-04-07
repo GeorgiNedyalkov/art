@@ -46,13 +46,18 @@ a:hover {
 }
 
 p {
-    margin: 20px 0px
+    margin-bottom: 20px;
 }
+
 
 h2 {
     margin: 20px 0px;
     text-align: center;
     color: var(--gray-900);
+}
+
+h4 {
+    margin-bottom: 10px;
 }
 
 h3 {
