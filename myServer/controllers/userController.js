@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
 const userManager = require("../managers/userManager");
 
 router.get("/", (req, res) => {
@@ -7,20 +6,20 @@ router.get("/", (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { name, username, email, password, repeatPassword } = req.body;
-
-  if (password !== repeatPassword) {
-    throw new Error(`Passwords do not match.`);
+  try {
+    const newUser = await userManager.register(req.body);
+    return newUser;
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+    console.log(error);
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const newUser = await userManager.create({
-    ...req.body,
-    password: hashedPassword,
-  });
-
   res.status(201).json(newUser);
+});
+
+router.post("/login", async (req, res) => {
+  // get the token
+  // save the token to cookies
 });
 
 module.exports = router;
