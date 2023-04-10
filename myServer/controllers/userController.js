@@ -8,13 +8,11 @@ router.get("/", (req, res) => {
 router.post("/register", async (req, res) => {
   try {
     const newUser = await userManager.register(req.body);
-    return newUser;
+    res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ msg: error.message });
     console.log(error);
   }
-
-  res.status(201).json(newUser);
 });
 
 router.post("/login", async (req, res) => {

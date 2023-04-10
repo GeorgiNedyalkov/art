@@ -10,6 +10,7 @@ import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
 import { getAll, create, update } from "./services/artService";
+import { createUser } from "./services/userService";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
 function App() {
@@ -20,8 +21,12 @@ function App() {
     getAll().then((data) => setPaintings(data));
   }, []);
 
-  const onRegisterHandler = (values) => {
-    console.log(values);
+  const onRegisterHandler = async (values) => {
+    const newUser = await createUser(values);
+
+    console.log(newUser);
+
+    navigate("/");
   };
 
   const onCreateArt = async (artData) => {
