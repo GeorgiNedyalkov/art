@@ -1,53 +1,38 @@
+import { requestFactory } from "./requester";
+
 const baseUrl = "http://localhost:3003/art-pieces";
 
-export const getAll = async () => {
-  const response = await fetch(baseUrl);
-  const data = await response.json();
+export const artServiceFactory = (token) => {
+  const request = requestFactory(token);
 
-  return data;
-};
+  const getAll = async () => {
+    const art = await request.get(baseUrl);
 
-export const getOne = async (artId) => {
-  const response = await fetch(`${baseUrl}/${artId}`);
-  const data = await response.json();
+    return art;
+  };
 
-  return data;
-};
+  const getOne = async (artId) => {
+    const artPiece = await request.get(`${baseUrl}/${artId}`);
 
-export const create = async (artData) => {
-  const response = await fetch(baseUrl, {
-    method: "POST",
-    body: JSON.stringify(artData),
-    headers: {
-      "Content-type": "application/json",
-    },
-  });
+    return artPiece;
+  };
 
-  const data = await response.json();
+  const create = async (artData) => {
+    const result = await request.post(baseUrl, artData);
 
-  return data;
-};
+    return result;
+  };
 
-export const deleteArt = async (artId) => {
-  const response = await fetch(`${baseUrl}/${artId}`, {
-    method: "DELETE",
-  });
+  const edit = (artId, artData) =>
+    request.put(`${baseUrl}/${artId}/edit`, artData);
 
-  const data = response.json();
+  const deleteArt = (artId) => request.delete(`${baseUrl}/${artId}`);
 
-  return data;
-};
-
-export const update = async (artId, artData) => {
-  const response = await fetch(`${baseUrl}/${artId}`, {
-    method: "PUT",
-    body: JSON.stringify(artData),
-    headers: {
-      "Content-type": "application/json",
-    },
-  });
-
-  const data = await response.json();
-
-  return data;
+  return {
+    getAll,
+    getOne,
+    create,
+    edit,
+    delete: deleteArt,
+  };
 };
