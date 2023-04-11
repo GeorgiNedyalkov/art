@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
   res.json(newArt);
 });
 
-router.put("/:artId", async (req, res) => {
+router.put("/:artId/edit", async (req, res) => {
   const artUpdatedData = req.body;
   const artId = req.params.artId;
   const updatedArt = await artManager.put(artId, artUpdatedData);

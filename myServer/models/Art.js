@@ -15,6 +15,7 @@ const artSchema = new mongoose.Schema({
   },
   year: Number,
   method: String,
+  movement: String,
   size: String,
   description: String,
 });
