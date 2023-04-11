@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import { getOne } from "../../services/artService";
+import { artServiceFactory } from "../../services/artService";
 import "./ArtDetails.css";
 
 const ArtDetails = () => {
   const [art, setArt] = useState({});
   const { artId } = useParams();
+  const artService = artServiceFactory();
 
   useEffect(() => {
-    getOne(artId).then((data) => setArt(data));
+    artService.getOne(artId).then((data) => setArt(data));
   }, []);
 
   return (

@@ -1,40 +1,42 @@
-import { useState } from "react";
+import { useEffect } from "react";
+import { useForm } from "../../hooks/useForm";
 
 import { useParams } from "react-router-dom";
+import { artServiceFactory } from "../../services/artService";
 
-const EditArt = ({ onEditArt }) => {
+const EditArt = ({ onEditArtSubmit }) => {
   const { artId } = useParams();
+  const artService = artServiceFactory();
+  const { values, changeHandler, onSubmit, changeValues } = useForm(
+    {
+      _id: "",
+      name: "",
+      artist: "",
+      imageUrl: "",
+      year: "",
+      method: "",
+      movement: "",
+      size: "",
+      description: "",
+    },
+    onEditArtSubmit
+  );
 
-  const [formValues, setFormValues] = useState({
-    name: "",
-    artist: "",
-    imageUrl: "",
-    year: "",
-    method: "",
-    movement: "",
-    size: "",
-    description: "",
-  });
-
-  const onValueChange = (e) => {
-    setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
-  };
-
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-
-    onEditArt(artId, formValues);
-  };
+  useEffect(() => {
+    artService.getOne(artId).then((result) => {
+      changeValues(result);
+    });
+  }, [artId]);
 
   return (
     <section>
       <h1>Edit Art</h1>
-      <form action="post" onSubmit={onFormSubmit}>
+      <form action="post" onSubmit={onSubmit}>
         <div>
           <label htmlFor="name"></label>
           <input
-            value={formValues.name}
-            onChange={onValueChange}
+            value={values.name}
+            onChange={changeHandler}
             type="text"
             name="name"
             id="name"
@@ -44,8 +46,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="artist"></label>
           <input
-            value={formValues.artist}
-            onChange={onValueChange}
+            value={values.artist}
+            onChange={changeHandler}
             type="text"
             name="artist"
             id="artist"
@@ -55,8 +57,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="imageUrl"></label>
           <input
-            value={formValues.imageUrl}
-            onChange={onValueChange}
+            value={values.imageUrl}
+            onChange={changeHandler}
             type="text"
             name="imageUrl"
             id="imageUrl"
@@ -66,8 +68,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="year"></label>
           <input
-            value={formValues.year}
-            onChange={onValueChange}
+            value={values.year}
+            onChange={changeHandler}
             type="number"
             name="year"
             id="year"
@@ -77,8 +79,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="method"></label>
           <input
-            value={formValues.method}
-            onChange={onValueChange}
+            value={values.method}
+            onChange={changeHandler}
             type="text"
             name="method"
             id="method"
@@ -88,8 +90,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="movement"></label>
           <input
-            value={formValues.movement}
-            onChange={onValueChange}
+            value={values.movement}
+            onChange={changeHandler}
             type="text"
             name="movement"
             id="movement"
@@ -99,8 +101,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="size"></label>
           <input
-            value={formValues.size}
-            onChange={onValueChange}
+            value={values.size}
+            onChange={changeHandler}
             type="text"
             name="size"
             id="size"
@@ -110,8 +112,8 @@ const EditArt = ({ onEditArt }) => {
         <div>
           <label htmlFor="description"></label>
           <textarea
-            value={formValues.description}
-            onChange={onValueChange}
+            value={values.description}
+            onChange={changeHandler}
             name="description"
             id="description"
             placeholder="Description"

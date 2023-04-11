@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { deleteArt } from "../../services/artService";
+import { artServiceFactory } from "../../services/artService";
 
 import "./Art.css";
 
@@ -14,8 +14,10 @@ const Art = ({
   description,
   artist,
 }) => {
+  const artSevice = artServiceFactory();
+
   const onDeleteArt = async (artId) => {
-    await deleteArt(artId);
+    await artSevice.delete(artId);
 
     // TODO: delete from state
 

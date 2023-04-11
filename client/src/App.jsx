@@ -8,18 +8,39 @@ import Register from "./components/Register/Register";
 import EditArt from "./components/EditArt/EditArt";
 import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
-
-import { getAll, create, update } from "./services/artService";
-import { createUser, login } from "./services/userService";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
+import { artServiceFactory } from "./services/artService";
+import { createUser, login } from "./services/userService";
+
 function App() {
-  const [paintings, setPaintings] = useState([]);
   const navigate = useNavigate();
+  const [paintings, setPaintings] = useState([]);
+  const artService = artServiceFactory();
 
   useEffect(() => {
-    getAll().then((data) => setPaintings(data));
+    artService.getAll().then((data) => setPaintings(data));
   }, []);
+
+  const onCreateArt = async (artData) => {
+    const newArtPiece = await artService.create(artData);
+
+    setPaintings((state) => [newArtPiece, ...state]);
+
+    navigate("/catalog");
+  };
+
+  const onEditArt = async (values) => {
+    const updatedArtPiece = await artService.edit(values._id, values);
+
+    setPaintings((state) =>
+      state.map((painting) =>
+        painting._id === values._id ? updatedArtPiece : painting
+      )
+    );
+
+    navigate(`/catalog/${values._id}`);
+  };
 
   const onRegisterHandler = async (values) => {
     const newUser = await createUser(values);
@@ -30,29 +51,9 @@ function App() {
   const onLoginSubmit = async (values) => {
     const token = await login(values);
 
-    console.log(token);
+    // console.log(token);
 
     navigate("/");
-  };
-
-  const onCreateArt = async (artData) => {
-    const newArtPiece = await create(artData);
-
-    setPaintings((state) => [newArtPiece, ...state]);
-
-    navigate("/catalog");
-  };
-
-  const onEditArt = async (artId, artData) => {
-    const updatedArtPiece = await update(artId, artData);
-
-    setPaintings((state) =>
-      state.map((painting) =>
-        painting._id === artId ? updatedArtPiece : painting
-      )
-    );
-
-    navigate(`/catalog/${artId}`);
   };
 
   return (
@@ -77,7 +78,7 @@ function App() {
         <Route path="/catalog/:artId" element={<ArtDetails />} />
         <Route
           path="/catalog/:artId/edit"
-          element={<EditArt onEditArt={onEditArt} />}
+          element={<EditArt onEditArtSubmit={onEditArt} />}
         />
       </Routes>
     </div>
