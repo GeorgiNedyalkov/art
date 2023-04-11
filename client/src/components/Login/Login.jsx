@@ -1,40 +1,35 @@
-import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
 import "./Login.css";
 
-const Login = () => {
-  const [values, setValues] = useState({
-    username: "",
-    password: "",
-  });
-
-  const onLoginChange = (e) => {
-    setValues((state) => ({ ...state, [e.target.name]: e.target.value }));
-  };
-
-  const onLoginSubmit = (e) => {
-    e.preventDefault();
-  };
+const Login = ({ onLoginSubmit }) => {
+  const { values, changeHandler, onSubmit } = useForm(
+    {
+      email: "",
+      password: "",
+    },
+    onLoginSubmit
+  );
 
   return (
     <section>
       <h2>Login</h2>
-      <form action="post" onSubmit={onLoginSubmit}>
+      <form action="post" onSubmit={onSubmit}>
         <div>
-          <label htmlFor="username"></label>
+          <label htmlFor="email"></label>
           <input
-            value={values.username}
-            onChange={onLoginChange}
+            value={values.email}
+            onChange={changeHandler}
             type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
+            name="email"
+            id="email"
+            placeholder="Email"
           />
         </div>
         <div>
           <label htmlFor="password"></label>
           <input
             value={values.password}
-            onChange={onLoginChange}
+            onChange={changeHandler}
             type="password"
             name="password"
             id="password"

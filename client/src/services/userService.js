@@ -13,3 +13,17 @@ export const createUser = async (userData) => {
 
   return result;
 };
+
+export const login = async (userData) => {
+  const response = await fetch(`${baseUrl}/login`, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+
+  const result = await response.json();
+
+  return result;
+};

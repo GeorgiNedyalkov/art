@@ -10,7 +10,7 @@ import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 
 import { getAll, create, update } from "./services/artService";
-import { createUser } from "./services/userService";
+import { createUser, login } from "./services/userService";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
 function App() {
@@ -24,7 +24,13 @@ function App() {
   const onRegisterHandler = async (values) => {
     const newUser = await createUser(values);
 
-    console.log(newUser);
+    navigate("/");
+  };
+
+  const onLoginSubmit = async (values) => {
+    const token = await login(values);
+
+    console.log(token);
 
     navigate("/");
   };
@@ -55,7 +61,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home paintings={paintings} />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login onLoginSubmit={onLoginSubmit} />}
+        />
         <Route
           path="/register"
           element={<Register onRegisterHandler={onRegisterHandler} />}
