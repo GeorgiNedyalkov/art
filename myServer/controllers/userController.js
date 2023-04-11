@@ -16,8 +16,15 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  // get the token
-  // save the token to cookies
+  const { email, password } = req.body;
+  try {
+    const token = await userManager.login(email, password);
+    console.log(token);
+    res.status(200).json(token);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ msg: error.message });
+  }
 });
 
 module.exports = router;
