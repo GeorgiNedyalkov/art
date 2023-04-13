@@ -41,9 +41,9 @@ const Art = ({
       <p className="art-medium">{method}</p>
       <p className="art-dimensions">{size}</p>
       <p className="art-description">{description?.slice(0, 200)}</p>
-      {/* <button onClick={() => onDeleteArt(_id)} className="btn delete">
+      <button onClick={() => onDeleteArt(_id)} className="btn delete">
         delete
-      </button> */}
+      </button>
     </article>
   );
 };
