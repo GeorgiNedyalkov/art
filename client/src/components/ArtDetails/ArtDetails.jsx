@@ -18,7 +18,7 @@ const ArtDetails = () => {
 
     // TODO: delete from state
 
-    // setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
+    setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
   };
 
   return (
@@ -27,10 +27,10 @@ const ArtDetails = () => {
       <p className="art-details-year">{art.year}</p>
       <Link to={`/catalog/${artId}/edit`}>
         <button className="btn edit">Edit</button>
-        <button onClick={() => onDeleteArt(_id)} className="btn delete">
-          delete
-        </button>
       </Link>
+      <button onClick={() => onDeleteArt(_id)} className="btn delete">
+        delete
+      </button>
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">

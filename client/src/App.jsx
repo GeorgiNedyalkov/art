@@ -51,8 +51,6 @@ function App() {
   const onLoginSubmit = async (values) => {
     const token = await login(values);
 
-    // console.log(token);
-
     navigate("/");
   };
 
