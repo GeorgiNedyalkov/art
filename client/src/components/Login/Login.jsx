@@ -1,9 +1,12 @@
 import { useAuthContext } from "../../context/AuthContext";
 import { useForm } from "../../hooks/useForm";
+
+import Error from "../Error/Error";
+
 import "./Login.css";
 
 const Login = () => {
-  const { onLoginSubmit } = useAuthContext();
+  const { onLoginSubmit, error } = useAuthContext();
   const { values, changeHandler, onSubmit } = useForm(
     {
       email: "",
@@ -15,6 +18,7 @@ const Login = () => {
   return (
     <section>
       <h2>Login</h2>
+      {error && <Error error={error} />}
       <form action="post" onSubmit={onSubmit}>
         <div>
           <label htmlFor="email"></label>

@@ -8,20 +8,27 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const userService = userServiceFactory();
   const [auth, setAuth] = useState({});
+  const [error, setError] = useState("");
 
   const onLoginSubmit = async (userData) => {
     try {
       const result = await userService.login(userData);
+
       setAuth(result);
-    } catch (error) {}
+
+      navigate("/catalog");
+    } catch (error) {
+      setError(error.msg);
+      console.log(error);
+    }
   };
 
   const onRegisterSubmit = async (formData) => {
     const { repeatPassword, ...registerData } = formData;
 
     if (repeatPassword !== registerData.password) {
+      setError("Passwords do not match");
       throw new Error("Passwords do not match");
-      return;
     }
 
     try {
@@ -31,12 +38,14 @@ export const AuthProvider = ({ children }) => {
 
       navigate("/catalog");
     } catch (error) {
+      setError(error.msg);
       console.log(error);
     }
   };
 
   const contextValues = {
     auth,
+    error,
     onLoginSubmit,
     onRegisterSubmit,
   };

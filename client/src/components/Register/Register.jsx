@@ -1,10 +1,12 @@
 import { useAuthContext } from "../../context/AuthContext";
 import { useForm } from "../../hooks/useForm";
 
+import Error from "../Error/Error";
+
 import "./Register.css";
 
 const Register = () => {
-  const { onRegisterSubmit } = useAuthContext();
+  const { onRegisterSubmit, error } = useAuthContext();
   const { values, changeHandler, onSubmit } = useForm(
     {
       name: "",
@@ -19,6 +21,7 @@ const Register = () => {
   return (
     <div className="register">
       <h2>Register</h2>
+      {error && <Error error={error} />}
       <form onSubmit={onSubmit} action="post">
         <div>
           <label htmlFor="name"></label>
