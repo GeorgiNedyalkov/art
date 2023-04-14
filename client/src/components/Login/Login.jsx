@@ -1,7 +1,9 @@
+import { useAuthContext } from "../../context/AuthContext";
 import { useForm } from "../../hooks/useForm";
 import "./Login.css";
 
-const Login = ({ onLoginSubmit }) => {
+const Login = () => {
+  const { onLoginSubmit } = useAuthContext();
   const { values, changeHandler, onSubmit } = useForm(
     {
       email: "",

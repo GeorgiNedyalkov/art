@@ -1,8 +1,10 @@
+import { useAuthContext } from "../../context/AuthContext";
 import { useForm } from "../../hooks/useForm";
 
 import "./Register.css";
 
-const Register = ({ onRegisterHandler }) => {
+const Register = () => {
+  const { onRegisterSubmit } = useAuthContext();
   const { values, changeHandler, onSubmit } = useForm(
     {
       name: "",
@@ -11,7 +13,7 @@ const Register = ({ onRegisterHandler }) => {
       password: "",
       repeatPassword: "",
     },
-    onRegisterHandler
+    onRegisterSubmit
   );
 
   return (

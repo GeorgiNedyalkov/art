@@ -10,8 +10,8 @@ import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
+import { AuthProvider } from "./context/AuthContext";
 import { artServiceFactory } from "./services/artService";
-import { createUser, login } from "./services/userService";
 
 function App() {
   const navigate = useNavigate();
@@ -42,44 +42,31 @@ function App() {
     navigate(`/catalog/${values._id}`);
   };
 
-  const onRegisterHandler = async (values) => {
-    const newUser = await createUser(values);
-
-    navigate("/");
-  };
-
-  const onLoginSubmit = async (values) => {
-    const token = await login(values);
-
-    navigate("/");
-  };
-
   return (
-    <div className="App">
-      <Header />
+    <AuthProvider>
+      <div className="App">
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<Home paintings={paintings} />} />
-        <Route
-          path="/login"
-          element={<Login onLoginSubmit={onLoginSubmit} />}
-        />
-        <Route
-          path="/register"
-          element={<Register onRegisterHandler={onRegisterHandler} />}
-        />
-        <Route
-          path="/create-art"
-          element={<CreateArt onCreateArt={onCreateArt} />}
-        />
-        <Route path="/catalog" element={<Catalogue paintings={paintings} />} />
-        <Route path="/catalog/:artId" element={<ArtDetails />} />
-        <Route
-          path="/catalog/:artId/edit"
-          element={<EditArt onEditArtSubmit={onEditArt} />}
-        />
-      </Routes>
-    </div>
+        <Routes>
+          <Route path="/" element={<Home paintings={paintings} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/create-art"
+            element={<CreateArt onCreateArt={onCreateArt} />}
+          />
+          <Route
+            path="/catalog"
+            element={<Catalogue paintings={paintings} />}
+          />
+          <Route path="/catalog/:artId" element={<ArtDetails />} />
+          <Route
+            path="/catalog/:artId/edit"
+            element={<EditArt onEditArtSubmit={onEditArt} />}
+          />
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
 

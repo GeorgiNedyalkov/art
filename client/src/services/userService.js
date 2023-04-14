@@ -1,29 +1,13 @@
+import { requestFactory } from "./requester";
+
 const baseUrl = "http://localhost:3003/users";
 
-export const createUser = async (userData) => {
-  const response = await fetch(`${baseUrl}/register`, {
-    method: "POST",
-    body: JSON.stringify(userData),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
+export const userServiceFactory = (token) => {
+  const request = requestFactory(token);
 
-  const result = await response.json();
-
-  return result;
-};
-
-export const login = async (userData) => {
-  const response = await fetch(`${baseUrl}/login`, {
-    method: "POST",
-    body: JSON.stringify(userData),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-
-  const result = await response.json();
-
-  return result;
+  return {
+    login: (data) => request.post(`${baseUrl}/login`, data),
+    register: (data) => request.post(`${baseUrl}/register`, data),
+    logout: () => request.post(`${baseUrl}/logout`),
+  };
 };
