@@ -1,4 +1,4 @@
-import Art from "../Art/Art";
+import Art from "../../Art/Art";
 import "./Paintings.css";
 
 const Paintings = ({ paintings }) => {

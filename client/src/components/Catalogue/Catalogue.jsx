@@ -1,5 +1,5 @@
 import "./Catalogue.css";
-import Paintings from "../Paintings/Piantings";
+import Paintings from "./Paintings/Paintings";
 
 const Catalogue = ({ paintings }) => {
   return (

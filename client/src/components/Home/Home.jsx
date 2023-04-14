@@ -1,4 +1,4 @@
-import Paintings from "../Paintings/Piantings";
+import Paintings from "../Catalogue/Paintings/Paintings";
 import "./Home.css";
 
 const Home = ({ paintings }) => {
