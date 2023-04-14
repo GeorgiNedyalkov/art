@@ -1,6 +1,6 @@
 const Art = require("../models/Art");
 
-exports.getAll = () => Art.find({});
+exports.getAll = (query) => Art.find(query);
 
 exports.create = (artData) => Art.create(artData);
 

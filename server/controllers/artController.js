@@ -2,15 +2,29 @@ const router = require("express").Router();
 const artManager = require("../managers/artManager");
 
 router.get("/", async (req, res) => {
-  const art = await artManager.getAll();
+  const { name, artist } = req.query;
+  const query = {};
 
-  res.json(art);
+  if (name) {
+    query.name = { $regex: name, $options: "i" };
+  }
+
+  if (artist) {
+    query.artist = { $regex: artist, $options: "i" };
+  }
+
+  const art = await artManager.getAll(query);
+
+  res.status(200).json(art);
 });
 
 router.get("/:artId", async (req, res) => {
-  const art = await artManager.getOne(req.params.artId);
-
-  res.json(art);
+  try {
+    const art = await artManager.getOne(req.params.artId);
+    res.status(200).json(art);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 router.post("/", async (req, res) => {
