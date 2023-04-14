@@ -22,9 +22,9 @@ Art structure:
 
 ## Private (Logged In Users only)
 
-- Add a new art to display to others.
-- Edit said art to include more details.
-- Delete art.
+- [x] Add a new art to display to others.
+- [x] Edit said art to include more details.
+- [x] Delete art.
 
 ## Comments
 
@@ -51,7 +51,7 @@ Additional Requirements:
 
 ## Bugs:
 
-- navigation to art details page from catalog or home page does not work.
+-[x] navigation to art details page from catalog or home page does not work.
 
 ## TODO:
 

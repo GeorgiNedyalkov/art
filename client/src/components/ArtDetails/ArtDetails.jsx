@@ -13,12 +13,23 @@ const ArtDetails = () => {
     artService.getOne(artId).then((data) => setArt(data));
   }, []);
 
+  const onDeleteArt = async (artId) => {
+    await artSevice.delete(artId);
+
+    // TODO: delete from state
+
+    // setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
+  };
+
   return (
     <section id="art-details-page">
       <h1 className="art-details-title">{art.name}</h1>
       <p className="art-details-year">{art.year}</p>
       <Link to={`/catalog/${artId}/edit`}>
         <button className="btn edit">Edit</button>
+        <button onClick={() => onDeleteArt(_id)} className="btn delete">
+          delete
+        </button>
       </Link>
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
