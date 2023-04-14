@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 import { artServiceFactory } from "../../services/artService";
 import "./ArtDetails.css";
 
 const ArtDetails = () => {
+  const navigate = useNavigate();
   const [art, setArt] = useState({});
   const { artId } = useParams();
   const artService = artServiceFactory();
@@ -14,11 +15,11 @@ const ArtDetails = () => {
   }, []);
 
   const onDeleteArt = async (artId) => {
-    await artSevice.delete(artId);
-
-    // TODO: delete from state
+    await artService.delete(artId);
 
     setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
+
+    navigate("/catalog");
   };
 
   return (
