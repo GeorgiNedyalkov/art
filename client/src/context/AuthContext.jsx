@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await userService.login(userData);
 
-      console.log(result);
       setAuth(result);
 
       navigate("/catalog");

@@ -6,15 +6,14 @@ import { AuthContext } from "../../../context/AuthContext";
 const Navbar = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
+  console.log(isAuthenticated);
+
   return (
     <nav className="navbar">
       <ul className="nav-items">
         <li>
           <Link to="/">Home</Link>
         </li>
-        {/* <li>
-          <Link to="/about">About</Link>
-        </li> */}
         <li>
           <Link to="/catalog">Catalog</Link>
         </li>
