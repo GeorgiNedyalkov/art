@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Header from "./components/Header/Header";
 import Register from "./components/Register/Register";
@@ -66,6 +67,7 @@ function App() {
           />
         </Routes>
       </div>
+      {/* <Footer /> */}
     </AuthProvider>
   );
 }
