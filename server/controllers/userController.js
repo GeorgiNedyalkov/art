@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userManager = require("../managers/userManager");
+const { isAuth } = require("../middlewares/authentication");
 
 router.get("/", (req, res) => {
   res.status(200).json({ msg: "User route" });
@@ -7,8 +8,9 @@ router.get("/", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const newUser = await userManager.register(req.body);
-    res.status(201).json(newUser);
+    const token = await userManager.register(req.body);
+    res.cookie("auth", token);
+    res.status(201).json(token);
   } catch (error) {
     res.status(400).json({ msg: error.message });
     console.log(error);
@@ -19,6 +21,7 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await userManager.login(email, password);
+    res.cookie("auth", token);
     res.status(200).json(token);
   } catch (error) {
     console.log(error);
@@ -27,7 +30,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", async (req, res) => {
-  res.json({ msg: "should logout" });
+  res.clearCookie("auth");
 });
 
 module.exports = router;
