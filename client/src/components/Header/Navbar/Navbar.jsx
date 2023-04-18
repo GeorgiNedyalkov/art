@@ -6,7 +6,6 @@ import { AuthContext } from "../../../context/AuthContext";
 const Navbar = () => {
   const { isAuthenticated, auth } = useContext(AuthContext);
 
-  console.log(isAuthenticated);
   console.log(auth);
 
   return (

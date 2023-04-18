@@ -1,20 +1,21 @@
 import { useContext, createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userServiceFactory } from "../services/userService";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
   const [error, setError] = useState("");
+  const [auth, setAuth] = useLocalStorage("auth", {});
   const userService = userServiceFactory(auth.token);
 
   const onLoginSubmit = async (userData) => {
     try {
       const result = await userService.login(userData);
 
-      setAuth((state) => ({ ...state, accessToken: result }));
+      setAuth(result);
 
       navigate("/catalog");
     } catch (error) {
@@ -50,13 +51,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const contextValues = {
-    auth,
-    error,
     onLoginSubmit,
     onRegisterSubmit,
     onLogout,
-    token: auth.accessToken,
-    isAuthenticated: !!auth.accessToken,
+    error,
   };
 
   return (
