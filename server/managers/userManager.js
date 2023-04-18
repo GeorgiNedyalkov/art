@@ -27,7 +27,6 @@ exports.register = async (userData) => {
 };
 
 exports.login = async (email, password) => {
-  // Check if user exists
   const existingUser = await this.findByEmail(email);
   if (!existingUser) {
     throw new Error("There is no user with this email");

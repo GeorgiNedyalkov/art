@@ -19,12 +19,15 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await userManager.login(email, password);
-    console.log(token);
     res.status(200).json(token);
   } catch (error) {
     console.log(error);
     res.status(400).json({ msg: error.message });
   }
+});
+
+router.post("/logout", async (req, res) => {
+  res.json({ msg: "should logout" });
 });
 
 module.exports = router;

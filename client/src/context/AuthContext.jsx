@@ -6,15 +6,15 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const userService = userServiceFactory();
   const [auth, setAuth] = useState({});
   const [error, setError] = useState("");
+  const userService = userServiceFactory(auth.token);
 
   const onLoginSubmit = async (userData) => {
     try {
       const result = await userService.login(userData);
 
-      setAuth(result);
+      setAuth((state) => ({ ...state, accessToken: result }));
 
       navigate("/catalog");
     } catch (error) {
@@ -43,14 +43,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const onLogout = async () => {
+    await userService.logout();
+
+    setAuth({});
+  };
+
   const contextValues = {
     auth,
     error,
     onLoginSubmit,
     onRegisterSubmit,
-    isAuthenticated() {
-      return !!auth;
-    },
+    onLogout,
+    token: auth.accessToken,
+    isAuthenticated: !!auth.accessToken,
   };
 
   return (

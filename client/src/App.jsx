@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
 import Header from "./components/Header/Header";
 import Register from "./components/Register/Register";
 import EditArt from "./components/EditArt/EditArt";
@@ -51,6 +52,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home paintings={paintings} />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/create-art"
@@ -67,7 +69,7 @@ function App() {
           />
         </Routes>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </AuthProvider>
   );
 }
