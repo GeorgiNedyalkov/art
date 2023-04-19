@@ -17,6 +17,10 @@ router.get("/", async (req, res) => {
     query.movement = { $regex: movement, $options: "i" };
   }
 
+  if (year) {
+    query.year = Number(year);
+  }
+
   const art = await artManager.getAll(query);
 
   res.status(200).json(art);
