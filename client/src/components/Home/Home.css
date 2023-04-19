@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 100px;
 }
 
 .hero-img-container {
@@ -12,4 +13,33 @@
     height: 100%;
 }
 
+.home-img {
+    height: 100%;
+}
 
+.home-img-container {
+    height: 600px; 
+}
+
+.home-paintings {
+    margin-bottom: 100px;
+}
+
+.create-art {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.create-art-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+}
+.catalog-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}

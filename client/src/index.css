@@ -103,7 +103,7 @@ input, textarea {
 .btn {
     margin-bottom: 20px;
     padding: 5px;
-    width: 100px;
+    width: 150px;
     border: none;
     font-weight: 700;
     text-transform: uppercase;
@@ -122,4 +122,14 @@ input, textarea {
 
 .edit {
     background-color: var(--blue-400);
+}
+
+/* Utility */
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
 }

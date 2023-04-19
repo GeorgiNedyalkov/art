@@ -1,10 +1,11 @@
 import Paintings from "../Catalogue/Paintings/Paintings";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = ({ paintings }) => {
   return (
     <main>
-      <div className="hero">
+      <section className="hero">
         <div>
           <h1>Welcome to the Art Hub</h1>
           <p>Share your art and your interpretations with others</p>
@@ -17,13 +18,46 @@ const Home = ({ paintings }) => {
             alt="hero image: the mona lisa"
           />
         </div>
-      </div>
+      </section>
 
-      <h2>Catalogue</h2>
+      <section className="catalog">
+        <div className="catalog-copy">
+          <h2>Catalog</h2>
 
-      <div>
-        <Paintings paintings={paintings} />
-      </div>
+          <p className="copy">
+            Browse through all the beautiful paitings in our lifetime
+          </p>
+          <Link to="/catalog">
+            <button className="btn">See Catalog</button>
+          </Link>
+        </div>
+        <div className="home-paintings">
+          <Paintings paintings={paintings.slice(0, 3)} />
+        </div>
+      </section>
+
+      <section className="create-art">
+        <div className="create-art-copy">
+          <h2>Share your paintings with others</h2>
+          <p>
+            You can add your own art work for others to like and comment on.
+          </p>
+          <Link to="/create-art">
+            <button className="btn">Create Art</button>
+          </Link>
+        </div>
+        <div className="home-img-container">
+          <img
+            className="home-img"
+            src="https://arthive.net/res/media/img/orig/work/b0b/299075.jpeg"
+            alt=""
+          />
+        </div>
+      </section>
+
+      <section className="artists">
+        <h2 className="left">Artists</h2>
+      </section>
     </main>
   );
 };
