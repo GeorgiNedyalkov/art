@@ -1,3 +1,14 @@
+footer {
+  height: 200px;
+}
+
 .copy {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.social-icon {
+  width: 40px;
 }
