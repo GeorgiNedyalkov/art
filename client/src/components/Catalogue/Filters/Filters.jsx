@@ -3,22 +3,24 @@ import { useForm } from "../../../hooks/useForm";
 const Filters = ({ onSearchSubmit }) => {
   const { values, changeHandler, onSubmit } = useForm(
     {
-      search: "",
+      name: "",
       artist: "",
+      movement: "",
+      year: "",
     },
     onSearchSubmit
   );
 
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="search"></label>
+      <label htmlFor="name"></label>
       <input
-        value={values.search}
+        value={values.name}
         onChange={changeHandler}
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Search"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Name"
       />
       <label htmlFor="artist"></label>
       <input

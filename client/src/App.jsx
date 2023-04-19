@@ -44,34 +44,8 @@ function App() {
     navigate(`/catalog/${values._id}`);
   };
 
-  const onSearchSubmit = (values) => {
-    const { search, artist, movement, year } = values;
-
-    let filteredPaintings = paintings;
-
-    if (search) {
-      filteredPaintings = filteredPaintings.filter((art) =>
-        art.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    if (artist) {
-      filteredPaintings = filteredPaintings.filter((art) =>
-        art.artist.toLowerCase().includes(artist.toLowerCase())
-      );
-    }
-
-    if (movement) {
-      filteredPaintings = filteredPaintings.filter((art) =>
-        art.movement.toLowerCase().includes(movement.toLowerCase())
-      );
-    }
-
-    if (year) {
-      filteredPaintings = filteredPaintings.filter(
-        (art) => art.year === Number(year)
-      );
-    }
+  const onSearchSubmit = async (values) => {
+    const filteredPaintings = await artService.getAll(values);
 
     setPaintings(filteredPaintings);
   };

@@ -5,8 +5,32 @@ const baseUrl = "http://localhost:3003/art-pieces";
 export const artServiceFactory = (token) => {
   const request = requestFactory(token);
 
-  const getAll = async () => {
+  const getAll = async (query) => {
     const art = await request.get(baseUrl);
+
+    if (query) {
+      const { name, artist, movement, year } = query;
+
+      if (name) {
+        const filterArt = await request.get(`${baseUrl}/?name=${name}`);
+        return filterArt;
+      }
+
+      if (artist) {
+        const filterArt = await request.get(`${baseUrl}/?artist=${artist}`);
+        return filterArt;
+      }
+
+      if (movement) {
+        const filterArt = await request.get(`${baseUrl}/?movement=${movement}`);
+        return filterArt;
+      }
+
+      if (year) {
+        const filterArt = await request.get(`${baseUrl}/?year=${year}`);
+        return filterArt;
+      }
+    }
 
     return art;
   };

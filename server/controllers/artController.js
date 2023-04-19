@@ -2,7 +2,7 @@ const router = require("express").Router();
 const artManager = require("../managers/artManager");
 
 router.get("/", async (req, res) => {
-  const { name, artist } = req.query;
+  const { name, artist, movement, year } = req.query;
   const query = {};
 
   if (name) {
@@ -11,6 +11,10 @@ router.get("/", async (req, res) => {
 
   if (artist) {
     query.artist = { $regex: artist, $options: "i" };
+  }
+
+  if (movement) {
+    query.movement = { $regex: movement, $options: "i" };
   }
 
   const art = await artManager.getAll(query);
