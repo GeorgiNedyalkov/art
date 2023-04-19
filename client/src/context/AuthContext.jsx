@@ -47,6 +47,8 @@ export const AuthProvider = ({ children }) => {
   const onLogout = async () => {
     await userService.logout();
 
+    localStorage.removeItem("auth");
+
     setAuth({});
   };
 
@@ -55,6 +57,8 @@ export const AuthProvider = ({ children }) => {
     onRegisterSubmit,
     onLogout,
     error,
+    auth,
+    isAuthenticated: auth.length === 0,
   };
 
   return (

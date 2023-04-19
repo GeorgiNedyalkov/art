@@ -53,3 +53,5 @@ export const requestFactory = (token) => {
     delete: requester.bind(null, "DELETE", token),
   };
 };
+
+export const request = requestFactory(localStorage.getItem("auth"));

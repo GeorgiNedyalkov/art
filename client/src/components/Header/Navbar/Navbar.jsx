@@ -7,6 +7,7 @@ const Navbar = () => {
   const { isAuthenticated, auth } = useContext(AuthContext);
 
   console.log(auth);
+  console.log(isAuthenticated);
 
   return (
     <nav className="navbar">

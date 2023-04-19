@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
+import { useService } from "../../hooks/useService";
 
 import { useParams } from "react-router-dom";
 import { artServiceFactory } from "../../services/artService";
 
 const EditArt = ({ onEditArtSubmit }) => {
   const { artId } = useParams();
-  const artService = artServiceFactory();
+  const artService = useService(artServiceFactory);
   const { values, changeHandler, onSubmit, changeValues } = useForm(
     {
       _id: "",
