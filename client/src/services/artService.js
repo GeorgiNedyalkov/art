@@ -6,8 +6,6 @@ export const artServiceFactory = (token) => {
   const request = requestFactory(token);
 
   const getAll = async (query) => {
-    const art = await request.get(baseUrl);
-
     if (query) {
       const { name, artist, movement, year } = query;
 
@@ -31,6 +29,8 @@ export const artServiceFactory = (token) => {
         return filterArt;
       }
     }
+
+    const art = await request.get(baseUrl);
 
     return art;
   };
