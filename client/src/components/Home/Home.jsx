@@ -10,7 +10,6 @@ const Home = ({ paintings, artists }) => {
           <h1>Welcome to the Art Hub</h1>
           <p>Share your art and your interpretations with others</p>
         </div>
-
         <div className="hero-img-container">
           <img
             className="hero-img"
@@ -23,7 +22,6 @@ const Home = ({ paintings, artists }) => {
       <section className="catalog">
         <div className="catalog-copy">
           <h2>Catalog</h2>
-
           <p className="copy">
             Browse through all the beautiful paitings in our lifetime
           </p>
