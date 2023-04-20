@@ -58,7 +58,7 @@ const Home = ({ paintings, artists }) => {
       <section className="artists">
         <h2 className="left">Artists</h2>
         <ul className="artist__list">
-          {artists.map((artist) => (
+          {artists.slice(0, 5).map((artist) => (
             <li key={artist._id}>
               <Link to={`/artists/${artist._id}`}>
                 <h4>{artist.name}</h4>
