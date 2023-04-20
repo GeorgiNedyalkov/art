@@ -1,26 +1,17 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import { artServiceFactory } from "../../services/artService";
 import "./ArtDetails.css";
 
-const ArtDetails = () => {
-  const navigate = useNavigate();
-  const [art, setArt] = useState({});
+const ArtDetails = ({ onDeleteArt }) => {
   const { artId } = useParams();
+  const [art, setArt] = useState({});
   const artService = artServiceFactory();
 
   useEffect(() => {
     artService.getOne(artId).then((data) => setArt(data));
   }, []);
-
-  const onDeleteArt = async (artId) => {
-    await artService.delete(artId);
-
-    setPaintings((state) => state.filter((art) => art._id !== artPiece._id));
-
-    navigate("/catalog");
-  };
 
   return (
     <section id="art-details-page">
@@ -29,7 +20,7 @@ const ArtDetails = () => {
       <Link to={`/catalog/${artId}/edit`}>
         <button className="btn edit">Edit</button>
       </Link>
-      <button onClick={() => onDeleteArt(_id)} className="btn delete">
+      <button onClick={() => onDeleteArt(art._id)} className="btn delete">
         delete
       </button>
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
