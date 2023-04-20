@@ -1,0 +1,31 @@
+[
+    {
+        "id": "pablo",
+        "name": "Pablo Picasso",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Pablo_picasso_1.jpg",
+        "born": "October 25, 1881",
+        "birthplace": "Malaga, Spain",
+        "bio": "Pablo Diego Jose Francisco de Paula Huain Nemusseino Maria de los Remedios Cypriano de la Santisima Trinidad Clio Maitir Patricia Ruis and Picasso ( Spanish: Pablo Diego José Francisco de Paula Juan Nepomuceno María de los Remedios Cipriano de la Santísima Trinidad Clito Mártir Patricio Ruiz y Picasso) e Spanish artist and sculptor, who has spent most of his life in France. deals with painting, ceramics, collages, graphics etc. He is an extremely productive artist. His work goes through many different periods. He is the creator of cubism ( together with George Braque), passes through surrealism, but remains one of the greatest artists who have greatly influenced the development of fine arts of the twentieth century. The Picasso family is of Italian origin, pronounced in Spanish with an e. His father is also an artist. He also has two sisters. He was recognized as the most important artist of the last 100 years, as well as the most expensive and the most stolen.",
+        "movement": "cubmism, surrealism"
+    },
+    {
+        "id": "leo",
+        "name": "Leonardo Da Vinci",
+        "imageUrl": "https://momichetata.com//media/thumbs/202007/103281/1140x650.jpg?t=1595587051",
+        "born": "April 15, 1452",
+        "birthplace": "Amboise, France",
+        "bio": "Leonardo da Vinci ( Italian: Leonardo di ser Piero da Vinci) (April 15 1452 – May 2 1519) is famous Italian architect, inventor, engineer, sculptor and artist from the era of Renaissance. He is said to be a prototype of the Renaissance man and a comprehensive genius. Leonardo is famous for his paintings, the most famous of which are 'The Last Supper' and 'Mona Lisa'. He is also known for his many inventions, ahead of their time, but remained only on paper. It also contributes to the development of anatomy, astronomy and engineering.",
+        "movement": "portrait",
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Da_Vinci_Signature.svg/160px-Da_Vinci_Signature.svg.png"
+    },
+    {
+        "id": "basquiat",
+        "name": "Jean-Michel Basquiat",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Jean-Michel_Basquiat_1982_by_Andy_Warhol.png/220px-Jean-Michel_Basquiat_1982_by_Andy_Warhol.png",
+        "born": "December 22, 1960",
+        "birthplace": "New York City, USA",
+        "bio": "Jean-Michel Basquiat (1960-1988) was an American artist of Haitian and Puerto Rican descent, known for his raw and expressive style of painting, drawing, and graffiti. He was born and raised in Brooklyn, New York, and began his artistic career as a graffiti artist in the late 1970s under the pseudonym SAMO. Basquiat's work often incorporated elements of African, Caribbean, and American culture, as well as references to art history, pop culture, and social commentary. He gained recognition in the 1980s for his paintings, which were exhibited in galleries and museums around the world. Despite his success, Basquiat struggled with drug addiction and died at the age of 27 from a heroin overdose. His legacy has continued to grow in the decades since his death, and he is widely regarded as one of the most important artists of the 20th century, with his work often selling for millions of dollars at auction.",
+        "movement": "neo-expressionism",
+        "signature": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Da_Vinci_Signature.svg/160px-Da_Vinci_Signature.svg.png"
+    }
+]

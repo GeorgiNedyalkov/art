@@ -2,7 +2,7 @@ import Paintings from "../Catalogue/Paintings/Paintings";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-const Home = ({ paintings }) => {
+const Home = ({ paintings, artists }) => {
   return (
     <main>
       <section className="hero">
@@ -57,6 +57,22 @@ const Home = ({ paintings }) => {
 
       <section className="artists">
         <h2 className="left">Artists</h2>
+        <ul className="artist__list">
+          {artists.map((artist) => (
+            <li key={artist._id}>
+              <Link to={`/artists/${artist._id}`}>
+                <h4>{artist.name}</h4>
+                <div className="artist__card-container">
+                  <img
+                    className="artist__card"
+                    src={artist.imageUrl}
+                    alt={artist.name}
+                  />
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );

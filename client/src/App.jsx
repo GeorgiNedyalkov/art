@@ -15,19 +15,19 @@ import ArtDetails from "./components/ArtDetails/ArtDetails";
 import { AuthProvider } from "./context/AuthContext";
 import { artServiceFactory } from "./services/artService";
 import Artist from "./components/ArtistList/Artist/Artist";
+import { artistServiceFactory } from "./services/artistService";
 
 function App() {
   const navigate = useNavigate();
   const [paintings, setPaintings] = useState([]);
   const [artists, setArtists] = useState([]);
   const artService = artServiceFactory();
+  const artistService = artistServiceFactory();
 
   useEffect(() => {
     Promise.all([
       artService.getAll().then((data) => setPaintings(data)),
-      fetch("/artists.json")
-        .then((response) => response.json())
-        .then((data) => setArtists(data)),
+      artistService.getAll().then((data) => setArtists(data)),
     ]);
   }, []);
 
@@ -99,10 +99,7 @@ function App() {
             path="/catalog/:artId/edit"
             element={<EditArt onEditArtSubmit={onEditArt} />}
           />
-          <Route
-            path="/artists/:artistId"
-            element={<Artist paintings={paintings} />}
-          />
+          <Route path="/artists/:artistId" element={<Artist />} />
         </Routes>
       </div>
       <Footer />
