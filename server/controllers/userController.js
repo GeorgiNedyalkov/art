@@ -20,15 +20,25 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await userManager.login(email, password);
-    res.cookie("auth", token);
-    res.status(200).json(token);
+
+    const result = {
+      email,
+      token,
+    };
+
+    res.status(200).json(result);
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
 });
 
-router.post("/logout", async (req, res) => {
-  res.clearCookie("auth");
+router.get("/logout", async (req, res) => {
+  try {
+    await res.clearCookie("auth");
+    res.status(200).json({ msg: "Logged out" });
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
 });
 
 module.exports = router;

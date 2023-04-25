@@ -9,3 +9,5 @@ exports.getOne = (id) => Art.findById(id);
 exports.put = (id, artData) => Art.findByIdAndUpdate(id, artData);
 
 exports.delete = (id) => Art.findByIdAndDelete(id);
+
+exports.addComment = (id, comment) => Art.findByIdAndUpdate(id, comment);

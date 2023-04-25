@@ -8,10 +8,27 @@ const ArtDetails = ({ onDeleteArt }) => {
   const { artId } = useParams();
   const [art, setArt] = useState({});
   const artService = artServiceFactory();
+  const [username, setUsername] = useState("");
+  const [text, setText] = useState("");
 
   useEffect(() => {
-    artService.getOne(artId).then((data) => setArt(data));
-  }, []);
+    artService.getOne(artId).then((result) => {
+      setArt(result);
+    });
+  }, [artId]);
+
+  const onCommentSubmit = async (e) => {
+    e.preventDefault();
+
+    const comment = await artService.addComment(artId, {
+      username,
+      text,
+    });
+
+    setArt((state) => ({ ...state, comments: [...state.comments, comment] }));
+    setUsername("");
+    setText("");
+  };
 
   return (
     <section id="art-details-page">
@@ -38,6 +55,38 @@ const ArtDetails = ({ onDeleteArt }) => {
           <p>{art.description}</p>
         </div>
       </div>
+
+      <div className="comments">
+        <h3>Comments:</h3>
+        {art.comments?.map((comment) => (
+          <p key={comment.username}>
+            {comment.username}: {comment.text}
+          </p>
+        ))}
+      </div>
+
+      <form onSubmit={onCommentSubmit}>
+        <input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username: "
+          type="text"
+          name="username"
+          id="username"
+        />
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Comment..."
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <button className="btn" type="submit">
+          Add Comment
+        </button>
+      </form>
     </section>
   );
 };

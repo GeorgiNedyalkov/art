@@ -15,7 +15,6 @@ exports.authentication = async (req, res, next) => {
       res.locals.user = decodedToken;
     } catch (error) {
       res.clearCookie("auth");
-
       return res.status(401);
     }
   }

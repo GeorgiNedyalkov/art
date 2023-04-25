@@ -52,11 +52,21 @@ export const artServiceFactory = (token) => {
 
   const deleteArt = (artId) => request.delete(`${baseUrl}/${artId}`);
 
+  const addComment = async (artId, commentData) => {
+    const result = await request.post(
+      `${baseUrl}/${artId}/comments`,
+      commentData
+    );
+
+    return result;
+  };
+
   return {
     getAll,
     getOne,
     create,
     edit,
     delete: deleteArt,
+    addComment,
   };
 };

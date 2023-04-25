@@ -18,6 +18,13 @@ const artSchema = new mongoose.Schema({
   movement: String,
   size: String,
   description: String,
+  comments: [
+    {
+      type: mongoose.Types.ObjectId,
+      username: String,
+      text: String,
+    },
+  ],
 });
 
 const Art = mongoose.model("Art", artSchema);

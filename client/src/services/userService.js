@@ -8,6 +8,6 @@ export const userServiceFactory = (token) => {
   return {
     login: (data) => request.post(`${baseUrl}/login`, data),
     register: (data) => request.post(`${baseUrl}/register`, data),
-    logout: () => request.post(`${baseUrl}/logout`),
+    logout: () => request.get(`${baseUrl}/logout`),
   };
 };

@@ -78,8 +78,7 @@ _Extras_
 - Add artists
 - Add most liked artworks
 - Add ability to like a painting
-- Add a footer
-- Create filters, search function and sorting for catalog page.
+- Add a footer -[x] Create filters, search function and sorting for catalog page.
 
 - Create a better design
 

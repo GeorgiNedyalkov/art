@@ -21,9 +21,12 @@ router.get("/", async (req, res) => {
     query.year = Number(year);
   }
 
-  const art = await artManager.getAll(query);
-
-  res.status(200).json(art);
+  try {
+    const art = await artManager.getAll(query);
+    res.status(200).json(art);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 router.get("/:artId", async (req, res) => {
@@ -36,23 +39,48 @@ router.get("/:artId", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const newArt = await artManager.create(req.body);
+  try {
+    const newArt = await artManager.create(req.body);
 
-  res.json(newArt);
+    res.status(201).json(newArt);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 router.put("/:artId/edit", async (req, res) => {
   const artUpdatedData = req.body;
   const artId = req.params.artId;
-  const updatedArt = await artManager.put(artId, artUpdatedData);
 
-  res.json(updatedArt);
+  try {
+    const updatedArt = await artManager.put(artId, artUpdatedData);
+    res.status(200).json(updatedArt);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 router.delete("/:artId", async (req, res) => {
-  const artToDelete = await artManager.delete(req.params.artId);
+  const artId = req.params.artId;
+  try {
+    await artManager.delete(artId);
+    res.status(200).json({ msg: `Art with id: ${artId}` });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
 
-  res.json(artToDelete);
+router.post("/:artId/comments", async (req, res) => {
+  const comment = req.body;
+  const artId = req.params.artId;
+
+  try {
+    const newComment = await artManager.addComment(artId, comment);
+    console.log(newComment);
+    res.status(201).json(newComment);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 });
 
 module.exports = router;

@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await userService.login(userData);
 
+      console.log("Logged in");
       setAuth(result);
 
       navigate("/catalog");
@@ -45,7 +46,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const onLogout = async () => {
-    await userService.logout();
+    const result = await userService.logout();
+    console.log(result);
+    console.log(auth);
 
     localStorage.removeItem("auth");
 
@@ -58,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     onLogout,
     error,
     auth,
-    isAuthenticated: auth.length === 0,
+    isAuthenticated: !!auth.token,
   };
 
   return (
