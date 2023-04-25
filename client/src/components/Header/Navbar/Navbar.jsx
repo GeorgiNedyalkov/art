@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 
 const Navbar = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { email, isAuthenticated } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
@@ -23,6 +23,7 @@ const Navbar = () => {
             <li>
               <Link to="/my-paintings">My Paintings</Link>
             </li>
+            <p>{email}</p>
             <li>
               <Link to="/logout">Logout</Link>
             </li>

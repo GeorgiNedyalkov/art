@@ -63,8 +63,8 @@ _Forms_
 
 _Auth_
 
-- Add ability to register users
-- Add ability to log in
+- [x] Add ability to register users
+- [x] Add ability to log in
 - Add authorization
 - Add my personal art
 
@@ -88,4 +88,4 @@ _Extras_
 
 _Bugs_
 
-- Errors in logging in or registerring do not disappear.
+- [x] Errors in logging in or registerring do not disappear.

@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await userService.login(userData);
 
-      console.log("Logged in");
       setAuth(result);
 
       navigate("/catalog");
@@ -59,6 +58,8 @@ export const AuthProvider = ({ children }) => {
     onLogout,
     error,
     auth,
+    token: auth.token,
+    email: auth.email,
     isAuthenticated: !!auth.token,
   };
 
