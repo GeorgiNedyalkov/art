@@ -47,8 +47,6 @@ export const AuthProvider = ({ children }) => {
 
   const onLogout = async () => {
     const result = await userService.logout();
-    console.log(result);
-    console.log(auth);
 
     localStorage.removeItem("auth");
 

@@ -57,9 +57,9 @@ Additional Requirements:
 
 _Forms_
 
-- Unify all forms to use the useForm hook.
-- Fix the bug for same navigation.
-- Fix layout but in the art details page.
+- [x] Unify all forms to use the useForm hook.
+- [x] Fix the bug for same navigation.
+- [x] Fix layout but in the art details page.
 
 _Auth_
 
@@ -70,16 +70,22 @@ _Auth_
 
 _Filter_
 
-- Add filtering capability in catalog page
+- [x] Add filtering capability in catalog page
+- [] Style the filtering better
 
 _Extras_
 
 - Add comments
-- Add artists
+- [x] Add artists
 - Add most liked artworks
 - Add ability to like a painting
-- Add a footer -[x] Create filters, search function and sorting for catalog page.
+- [x] Add a footer
+- [x] Create filters, search function and sorting for catalog page.
 
 - Create a better design
 
 - Create a dark theme
+
+_Bugs_
+
+- Errors in logging in or registerring do not disappear.
