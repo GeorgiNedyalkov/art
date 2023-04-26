@@ -19,11 +19,12 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
-    const token = await userManager.login(email, password);
+    const loginData = await userManager.login(email, password);
 
     const result = {
       email,
-      token,
+      token: loginData.token,
+      userId: loginData.userId,
     };
 
     res.status(200).json(result);

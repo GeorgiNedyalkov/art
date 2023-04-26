@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }) => {
     onLogout,
     error,
     auth,
+    userId: auth.userId,
     token: auth.token,
     email: auth.email,
     isAuthenticated: !!auth.token,

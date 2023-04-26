@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { artServiceFactory } from "../../services/artService";
 import "./ArtDetails.css";
+import { useAuthContext } from "../../context/AuthContext";
 
 const ArtDetails = ({ onDeleteArt }) => {
   const { artId } = useParams();
@@ -10,6 +11,7 @@ const ArtDetails = ({ onDeleteArt }) => {
   const artService = artServiceFactory();
   const [username, setUsername] = useState("");
   const [text, setText] = useState("");
+  const { userId } = useAuthContext();
 
   useEffect(() => {
     artService.getOne(artId).then((result) => {
@@ -29,6 +31,12 @@ const ArtDetails = ({ onDeleteArt }) => {
     setUsername("");
     setText("");
   };
+
+  const isOwner = userId === art.ownerId;
+
+  console.log(art.ownerId);
+
+  console.log(isOwner);
 
   return (
     <section id="art-details-page">
