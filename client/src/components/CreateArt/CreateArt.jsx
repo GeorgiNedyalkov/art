@@ -1,7 +1,10 @@
 import { useState } from "react";
+
+import { useAuthContext } from "../../context/AuthContext";
 import "./CreateArt.css";
 
 const CreateArt = ({ onCreateArt }) => {
+  const { isAuthenticated, userId } = useAuthContext();
   const [formValues, setFormValues] = useState({
     name: "",
     artist: "",
@@ -11,6 +14,7 @@ const CreateArt = ({ onCreateArt }) => {
     method: "",
     size: "",
     description: "",
+    ownerId: userId,
   });
 
   const onValueChange = (e) => {

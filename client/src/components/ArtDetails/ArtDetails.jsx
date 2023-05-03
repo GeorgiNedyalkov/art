@@ -34,10 +34,6 @@ const ArtDetails = ({ onDeleteArt }) => {
 
   const isOwner = userId === art.ownerId;
 
-  console.log(art.ownerId);
-
-  console.log(isOwner);
-
   return (
     <section id="art-details-page">
       <h1 className="art-details-title">{art.name}</h1>

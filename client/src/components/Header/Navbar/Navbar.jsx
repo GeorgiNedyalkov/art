@@ -15,15 +15,16 @@ const Navbar = () => {
         <li>
           <Link to="/catalog">Catalog</Link>
         </li>
-        <li>
-          <Link to="/create-art">Create Art</Link>
-        </li>
+
         {isAuthenticated && (
           <>
             <li>
+              <Link to="/create-art">Create Art</Link>
+            </li>
+            <li>
               <Link to="/my-paintings">My Paintings</Link>
             </li>
-            <p>{email}</p>
+            <li style={{ fontWeight: "bold" }}>{email}</li>
             <li>
               <Link to="/logout">Logout</Link>
             </li>
