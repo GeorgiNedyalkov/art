@@ -2,19 +2,19 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Home from "./components/Home/Home";
-import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
 import Header from "./components/Header/Header";
-import Register from "./components/Register/Register";
+import Footer from "./components/Footer/Footer";
 import EditArt from "./components/EditArt/EditArt";
+import Register from "./components/Register/Register";
 import CreateArt from "./components/CreateArt/CreateArt";
 import Catalogue from "./components/Catalogue/Catalogue";
+import Artist from "./components/ArtistList/Artist/Artist";
 import ArtDetails from "./components/ArtDetails/ArtDetails";
 
 import { AuthProvider } from "./context/AuthContext";
 import { artServiceFactory } from "./services/artService";
-import Artist from "./components/ArtistList/Artist/Artist";
 import { artistServiceFactory } from "./services/artistService";
 
 function App() {
@@ -69,7 +69,6 @@ function App() {
     <AuthProvider>
       <div className="App">
         <Header />
-
         <Routes>
           <Route
             path="/"
