@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { artServiceFactory } from "../../services/artService";
-import "./ArtDetails.css";
 import { useAuthContext } from "../../context/AuthContext";
+import "./ArtDetails.css";
 
 const ArtDetails = ({ onDeleteArt }) => {
   const { artId } = useParams();
-  const [art, setArt] = useState({});
-  const artService = artServiceFactory();
-  const [username, setUsername] = useState("");
-  const [text, setText] = useState("");
   const { userId } = useAuthContext();
+  const [art, setArt] = useState({});
+  const [text, setText] = useState("");
+  const [username, setUsername] = useState("");
+  const artService = artServiceFactory();
 
   useEffect(() => {
     artService.getOne(artId).then((result) => {

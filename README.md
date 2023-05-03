@@ -55,11 +55,9 @@ Additional Requirements:
 
 ## TODO:
 
-_Forms_
+_CRUD_
 
-- [x] Unify all forms to use the useForm hook.
-- [x] Fix the bug for same navigation.
-- [x] Fix layout but in the art details page.
+- [] deleting a painting should require confirmation
 
 _Auth_
 
@@ -68,22 +66,13 @@ _Auth_
 - Add authorization
 - Add my personal art
 
-_Filter_
-
-- [x] Add filtering capability in catalog page
-- [] Style the filtering better
-
 _Extras_
 
 - Add comments
-- [x] Add artists
 - Add most liked artworks
 - Add ability to like a painting
-- [x] Add a footer
-- [x] Create filters, search function and sorting for catalog page.
 
 - Create a better design
-
 - Create a dark theme
 
 _Bugs_
