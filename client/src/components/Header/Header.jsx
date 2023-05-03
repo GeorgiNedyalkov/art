@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 import Navbar from "./Navbar/Navbar";
 import "./Header.css";
 
 const Header = () => {
   return (
     <header className="header">
-      <h1>Art Hub</h1>
+      <Link to="/">
+        <h1>Art Hub</h1>
+      </Link>
       <Navbar />
     </header>
   );
