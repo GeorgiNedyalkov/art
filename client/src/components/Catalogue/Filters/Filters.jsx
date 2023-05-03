@@ -1,4 +1,5 @@
 import { useForm } from "../../../hooks/useForm";
+import "./Filters.css";
 
 const Filters = ({ onSearchSubmit }) => {
   const { values, changeHandler, onSubmit } = useForm(
@@ -12,9 +13,10 @@ const Filters = ({ onSearchSubmit }) => {
   );
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="filters" onSubmit={onSubmit}>
       <label htmlFor="name"></label>
       <input
+        className="filter"
         value={values.name}
         onChange={changeHandler}
         type="text"
@@ -49,7 +51,7 @@ const Filters = ({ onSearchSubmit }) => {
         id="year"
         placeholder="Year"
       />
-      <input type="submit" value="Search" />
+      <input className="btn-filter" type="submit" value="Search" />
     </form>
   );
 };
