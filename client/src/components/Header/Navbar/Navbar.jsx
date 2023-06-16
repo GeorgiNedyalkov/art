@@ -21,9 +21,6 @@ const Navbar = () => {
             <li>
               <Link to="/create-art">Create Art</Link>
             </li>
-            <li>
-              <Link to="/my-paintings">My Paintings</Link>
-            </li>
             <li style={{ fontWeight: "bold" }}>{email}</li>
             <li>
               <Link to="/logout">Logout</Link>
