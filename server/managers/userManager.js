@@ -48,6 +48,7 @@ exports.login = async (email, password) => {
 
   return {
     token,
+    email,
     userId: existingUser._id,
   };
 };
