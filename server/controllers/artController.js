@@ -71,16 +71,41 @@ router.delete("/:artId", async (req, res) => {
 });
 
 router.post("/:artId/comments", async (req, res) => {
-  const comment = req.body;
+  const { username, text } = req.body;
+  const artId = req.params.artId;
+
+  const comment = {
+    username,
+    text,
+  };
+
+  try {
+    const addedComment = await artManager.addComment(artId, comment);
+    res.status(201).json(addedComment);
+  } catch (error) {
+    res.status(500).json({
+      status: error.status,
+      messge: error.messge,
+      error: "Error creating comment",
+    });
+  }
+});
+
+router.get("/:artId/comments", async (req, res) => {
   const artId = req.params.artId;
 
   try {
-    const newComment = await artManager.addComment(artId, comment);
-    console.log(newComment);
-    res.status(201).json(newComment);
+    const art = await artManager.getOne(artId);
+    res.status(200).json(art.comments);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(500).json({
+      status: error.status,
+      messge: error.messge,
+      error: "Error retrieving comments",
+    });
   }
 });
+
+router.get;
 
 module.exports = router;

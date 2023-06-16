@@ -20,7 +20,6 @@ const artSchema = new mongoose.Schema({
   description: String,
   comments: [
     {
-      type: mongoose.Types.ObjectId,
       username: String,
       text: String,
     },

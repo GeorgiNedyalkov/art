@@ -10,4 +10,9 @@ exports.put = (id, artData) => Art.findByIdAndUpdate(id, artData);
 
 exports.delete = (id) => Art.findByIdAndDelete(id);
 
-exports.addComment = (id, comment) => Art.findByIdAndUpdate(id, comment);
+exports.addComment = async (id, comment) => {
+  const art = await Art.findById(id);
+  art.comments.push(comment);
+  await art.save();
+  return art;
+};
