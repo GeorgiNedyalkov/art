@@ -10,17 +10,19 @@ const ArtDetails = ({ onDeleteArt }) => {
   const { artId } = useParams();
   const { userId } = useAuthContext();
   const [art, setArt] = useState({});
+  const [comments, setComments] = useState([]);
   const [text, setText] = useState("");
   const [username, setUsername] = useState("");
   const artService = artServiceFactory();
+
   useEffect(() => {
     artService.getOne(artId).then((result) => {
       setArt(result);
     });
     commentService.getAll(artId).then((result) => {
-      console.log(result);
+      setComments(result);
     });
-  }, [artId]);
+  }, [artId, comments]);
 
   const onCommentSubmit = async (e) => {
     e.preventDefault();
@@ -71,7 +73,6 @@ const ArtDetails = ({ onDeleteArt }) => {
         <h3>Comments:</h3>
         {art.comments?.map((comment) => (
           <p key={comment.username}>
-            {console.log(comment)}
             {comment.username}: {comment.text}
           </p>
         ))}
