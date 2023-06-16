@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 import Comment from "./Comment/Comment";
 
@@ -44,8 +45,33 @@ const ArtDetails = ({ onDeleteArt }) => {
 
   return (
     <section id="art-details-page">
-      <h1 className="art-details-title">{art.name}</h1>
-      <p className="art-details-year">{art.year}</p>
+      <div className="art-header">
+        <h1 className="art-details-title">{art.name}</h1>
+        <p className="art-details-year">{art.year}</p>
+      </div>
+      <div className="art-details-image-wrapper">
+        <img className="art-details-img" src={art.imageUrl} alt={art.name} />
+      </div>
+      <div className="art-details">
+        <div className="art-details-info">
+          <div>
+            <h4>
+              Artist: <span className="art-info-text">{art.artist}</span>
+            </h4>
+            <h4>
+              Method: <span className="art-info-text">{art.method}</span>{" "}
+            </h4>
+            <h4>
+              Movement: <span className="art-info-text">{art.movement}</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div className="art-details-description">
+        <h4>Description</h4>
+        <p>{art.description}</p>
+      </div>
+
       {isOwner && (
         <div className="art-details-btn">
           <Link to={`/catalog/${artId}/edit`}>
@@ -56,26 +82,11 @@ const ArtDetails = ({ onDeleteArt }) => {
           </button>
         </div>
       )}
-      <img className="art-details-img" src={art.imageUrl} alt={art.name} />
-      <div className="art-details">
-        <div className="art-details-description">
-          <h4>Artist:</h4>
-          <p>{art.artist}</p>
-          <h4>Method: </h4>
-          <p>{art.method}</p>
-          <h4>Movement:</h4>
-          <p>{art.movement}</p>
-        </div>
-        <div>
-          <h4>Description</h4>
-          <p>{art.description}</p>
-        </div>
-      </div>
 
       <div className="comments">
         <h3 className="comments__heading">Comments:</h3>
         {art.comments?.map((comment) => (
-          <Comment key={comment.id} {...comment} />
+          <Comment key={nanoid()} {...comment} />
         ))}
       </div>
 

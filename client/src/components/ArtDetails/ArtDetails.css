@@ -1,20 +1,21 @@
-.art-details-title, .art-details-year {
+.art-details {
+    display: flex;
+    gap: 20px;
+}
+
+.art-header {
     text-align: center;
 }
 
-.art-details {
-    display: flex;    
-    justify-content: space-between;
-}
-
-.art-details-description {
-    min-width: 400px;
+.art-details-image-wrapper {
+    width: 100%;
 }
 
 .art-details-img {
-    margin-bottom: 50px;
+    width: 100%;
+    object-fit: contain;
 }
 
-.comments__heading {
-    margin-bottom: 10px;
+.art-info-text {
+    font-weight: 500;
 }
