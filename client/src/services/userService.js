@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = "http://localhost:3003/users";
+const baseUrl = `${process.env.API_BASE_URL}/users`;
 
 export const userServiceFactory = (token) => {
   const request = requestFactory(token);

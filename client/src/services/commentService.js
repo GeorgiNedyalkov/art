@@ -1,6 +1,7 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = "http://localhost:3003/art-pieces";
+const baseUrl = `${process.env.API_BASE_URL}/art-pieces`;
+
 const request = requestFactory();
 
 export const getAll = async (artId) => {
