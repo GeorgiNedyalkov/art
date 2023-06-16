@@ -1,4 +1,4 @@
-import Art from "../../Art/Art";
+import ArtCard from "../../ArtCard/ArtCard";
 import "./Paintings.css";
 
 const Paintings = ({ paintings }) => {
@@ -7,7 +7,7 @@ const Paintings = ({ paintings }) => {
       {paintings.map((p) => {
         return (
           <li key={p._id}>
-            <Art {...p} />
+            <ArtCard {...p} />
           </li>
         );
       })}

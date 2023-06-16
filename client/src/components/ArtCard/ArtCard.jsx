@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Art.css";
+import "./ArtCard.css";
 
-const Art = ({
+const ArtCard = ({
   _id,
   name,
   year,
@@ -32,4 +32,4 @@ const Art = ({
   );
 };
 
-export default Art;
+export default ArtCard;
