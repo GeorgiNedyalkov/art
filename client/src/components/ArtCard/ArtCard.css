@@ -2,17 +2,36 @@
     width: 300px;
 }
 
+.art-header {
+    height: 100px;
+}
+
 .art-img {
     width: 100%;
     height: 300px;
     object-fit: cover;
 }
 
-.art-description {
-    width: 100%;
+.art-subhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.art-medium,
-.art-size {
-    text-align: center;
+.art-description {
+    width: 100%;
+    height: 120px;
+}
+
+.art-link {
+    color: var(--gray-50);
+}
+
+.art-artist {
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.art-information {
+    margin-top: 20px;
 }
