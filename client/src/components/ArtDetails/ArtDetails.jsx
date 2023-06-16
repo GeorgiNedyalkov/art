@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
+import Comment from "./Comment/Comment";
+
 import { artServiceFactory } from "../../services/artService";
 import { useAuthContext } from "../../context/AuthContext";
 import * as commentService from "../../services/commentService";
+
 import "./ArtDetails.css";
 
 const ArtDetails = ({ onDeleteArt }) => {
@@ -70,11 +73,9 @@ const ArtDetails = ({ onDeleteArt }) => {
       </div>
 
       <div className="comments">
-        <h3>Comments:</h3>
+        <h3 className="comments__heading">Comments:</h3>
         {art.comments?.map((comment) => (
-          <p key={comment.username}>
-            {comment.username}: {comment.text}
-          </p>
+          <Comment key={comment.id} {...comment} />
         ))}
       </div>
 
