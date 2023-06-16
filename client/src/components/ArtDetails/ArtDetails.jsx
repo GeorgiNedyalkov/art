@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import { artServiceFactory } from "../../services/artService";
 import { useAuthContext } from "../../context/AuthContext";
+import * as commentService from "../../services/commentService";
 import "./ArtDetails.css";
 
 const ArtDetails = ({ onDeleteArt }) => {
@@ -12,17 +13,19 @@ const ArtDetails = ({ onDeleteArt }) => {
   const [text, setText] = useState("");
   const [username, setUsername] = useState("");
   const artService = artServiceFactory();
-
   useEffect(() => {
     artService.getOne(artId).then((result) => {
       setArt(result);
+    });
+    commentService.getAll(artId).then((result) => {
+      console.log(result);
     });
   }, [artId]);
 
   const onCommentSubmit = async (e) => {
     e.preventDefault();
 
-    const comment = await artService.addComment(artId, {
+    const comment = await commentService.create(artId, {
       username,
       text,
     });
@@ -38,12 +41,16 @@ const ArtDetails = ({ onDeleteArt }) => {
     <section id="art-details-page">
       <h1 className="art-details-title">{art.name}</h1>
       <p className="art-details-year">{art.year}</p>
-      <Link to={`/catalog/${artId}/edit`}>
-        <button className="btn edit">Edit</button>
-      </Link>
-      <button onClick={() => onDeleteArt(art._id)} className="btn delete">
-        delete
-      </button>
+      {isOwner && (
+        <div className="art-details-btn">
+          <Link to={`/catalog/${artId}/edit`}>
+            <button className="btn edit">Edit</button>
+          </Link>
+          <button onClick={() => onDeleteArt(art._id)} className="btn delete">
+            delete
+          </button>
+        </div>
+      )}
       <img className="art-details-img" src={art.imageUrl} alt={art.name} />
       <div className="art-details">
         <div className="art-details-description">
@@ -64,6 +71,7 @@ const ArtDetails = ({ onDeleteArt }) => {
         <h3>Comments:</h3>
         {art.comments?.map((comment) => (
           <p key={comment.username}>
+            {console.log(comment)}
             {comment.username}: {comment.text}
           </p>
         ))}
