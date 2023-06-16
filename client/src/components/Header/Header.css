@@ -1,7 +1,21 @@
 .header {
-    height: 80px;
+    height: 60px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
+
+.logo {
+    font-size: 1.8rem;
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+

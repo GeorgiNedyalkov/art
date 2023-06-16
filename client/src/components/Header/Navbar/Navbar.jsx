@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
-import "./Navbar.css";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import { AuthContext } from "../../../context/AuthContext";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { email, isAuthenticated } = useContext(AuthContext);

@@ -29,20 +29,28 @@ const Artist = () => {
 
   return (
     <article className="artist">
-      <h3 className="artist__name">{artist.name}</h3>
+      <h1 className="artist__name">{artist.name}</h1>
 
       <p>
-        {artist.born} in {artist.birthplace}
+        {artist.born} born in {artist.birthplace}
       </p>
 
-      <div className="artist__image">
-        <img src={artist.imageUrl} alt={artist.name} />
+      <div className="artist__top-section">
+        <div className="artist__image-container">
+          <img
+            className="artist__image"
+            src={artist.imageUrl}
+            alt={artist.name}
+          />
+        </div>
+        <div>
+          <h3 className="artist__bio__header">Biography:</h3>
+          <p className="artist__bio">{artist.bio}</p>
+        </div>
       </div>
 
-      <p className="artist__bio">{artist.bio}</p>
-
       <div>
-        <h3>Artworks: </h3>
+        <h3 className="artist__artwork__header">Artworks: </h3>
         <ul className="artist__artwork">{artWork}</ul>
       </div>
     </article>
