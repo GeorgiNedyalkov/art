@@ -4,7 +4,7 @@ const artController = require("./controllers/artController");
 const userController = require("./controllers/userController");
 const artistController = require("./controllers/artistController");
 
-router.use("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("Hello arthub server");
 });
 router.use("/art-pieces", artController);
