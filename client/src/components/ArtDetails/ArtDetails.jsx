@@ -41,7 +41,7 @@ const ArtDetails = ({ onDeleteArt }) => {
     setText("");
   };
 
-  const isOwner = userId === art.ownerId;
+  const isOwner = userId === art.ownerId && art.ownerId !== undefined;
 
   return (
     <section id="art-details-page">
