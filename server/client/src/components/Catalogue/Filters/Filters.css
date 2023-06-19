@@ -1,0 +1,13 @@
+.filters {
+    display: flex;
+    width: 100%;
+}
+
+.btn-filter {
+    background-color: var(--blue-400);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+}
+
