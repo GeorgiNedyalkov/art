@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = `${process.env.REACT_APP_API_BASE_URL}/users`;
+const baseUrl = `${import.meta.env.VITE_API_BASE_URL}/users`;
 
 export const userServiceFactory = (token) => {
   const request = requestFactory(token);

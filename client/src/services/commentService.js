@@ -1,8 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = `${
-  process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:5173/"
-}/art-pieces`;
+const baseUrl = `${import.meta.env.VITE_API_BASE_URL}/art-pieces`;
 
 const request = requestFactory();
 

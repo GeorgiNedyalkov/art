@@ -1,6 +1,6 @@
 import { requestFactory } from "./requester";
 
-const baseUrl = `${process.env.REACT_APP_API_BASE_URL}/artists`;
+const baseUrl = `${import.meta.env.VITE_API_BASE_URL}/artists`;
 
 export const artistServiceFactory = (token) => {
   const request = requestFactory(token);

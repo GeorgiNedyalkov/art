@@ -18,10 +18,6 @@ import { artServiceFactory } from "./services/artService";
 import { artistServiceFactory } from "./services/artistService";
 
 function App() {
-  console.log(process.env.REACT_APP_API_BASE_URL);
-
-  console.log(process.env.NODE_ENV);
-
   const navigate = useNavigate();
   const [paintings, setPaintings] = useState([]);
   const [artists, setArtists] = useState([]);

@@ -5,9 +5,9 @@ const userController = require("./controllers/userController");
 const artistController = require("./controllers/artistController");
 const homeController = require("./controllers/homeController");
 
-router.get("/api/", homeController);
+router.get("/", homeController);
 router.use("/api/art-pieces", artController);
-router.use("api/users", userController);
-router.use("api/artists", artistController);
+router.use("/api/users", userController);
+router.use("/api/artists", artistController);
 
 module.exports = router;
