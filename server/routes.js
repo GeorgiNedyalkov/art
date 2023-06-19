@@ -6,7 +6,6 @@ const artistController = require("./controllers/artistController");
 const homeController = require("./controllers/homeController");
 
 router.get("/", homeController);
-
 router.use("/art-pieces", artController);
 router.use("/users", userController);
 router.use("/artists", artistController);
