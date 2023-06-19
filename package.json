@@ -1,7 +1,6 @@
 {
   "name": "myserver",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,7 +8,8 @@
     "heroku-postbuild": "cd client && yarn && yarn build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Georgi Nedyalkov",
+  "description": "A website where users can browser and share artwork",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -18,9 +18,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.0.3",
+    "node": "^20.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
